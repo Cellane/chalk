@@ -10,7 +10,7 @@ ORIGIN_URL=`git config --get remote.origin.url`
 ORIGIN_CREDENTIALS=${ORIGIN_URL/\/\/github.com/\/\/$GITHUB_TOKEN@github.com}
 COMMIT_MESSAGE=$(git log -1 --pretty=%B)
 
-echo "Started deploying"
+echo "Started deploying…"
 
 # Checkout gh-pages branch.
 if [ `git branch | grep gh-pages` ]
@@ -29,8 +29,8 @@ mv _site/* .
 rm -R _site/
 
 # Push to gh-pages.
-git config user.name "$USERNAME"
-git config user.email "$EMAIL"
+git config user.name "$GITHUB_USERNAME"
+git config user.email "$GITHUB_EMAIL"
 
 git add -fA
 git commit --allow-empty -m "$COMMIT_MESSAGE [ci skip]"
@@ -40,6 +40,16 @@ git push -f -q $ORIGIN_CREDENTIALS gh-pages
 git checkout -
 yarn install --modules-folder ./_assets/yarn
 
-echo "Deployed Successfully!"
+# Purge Cloudfront cache
+echo "Purching Cloudflare cache…"
+curl -X "DELETE" "https://api.cloudflare.com/client/v4/zones/$CLOUDFRONT_ZONE_ID/purge_cache" \
+     -H 'Content-Type: application/json' \
+     -H "X-Auth-Email: $CLOUDFRONT_AUTH_EMAIL" \
+     -H "X-Auth-Key: $CLOUDFRONT_AUTH_KEY" \
+     -d $'{
+  "purge_everything": true
+}'
+
+echo "Deployed successfully!"
 
 exit 0
