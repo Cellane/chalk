@@ -1,6 +1,8 @@
 source "https://rubygems.org"
 
 gem "autoprefixer-rails"
+gem "danger"
+gem "danger-prose"
 gem "html-proofer"
 gem "image_optim"
 gem "jekyll"
