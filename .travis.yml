@@ -17,7 +17,7 @@ before_script:
   - sudo apt-get -qq update
   - sudo apt-get install -y aspell aspell-en
   - pip install --user proselint
-  - npm install -g markdown-spellcheck
+  - npm install -g Cellane/node-markdown-spellcheck
 script:
   - bundle exec jekyll build --trace
   - bundle exec htmlproofer ./_site --only-4xx --allow-hash-href --assume-extension --check-opengraph --url-ignore "feed.xml"
