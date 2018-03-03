@@ -4,17 +4,17 @@ blog_theme: dark # Or use dark
 name: Czech/in/Japan
 paginate: 10
 url: https://www.milanvit.net # add your site url (format: https://example.com)
-
+discus_domain: https://www.milanvit.net
 
 # Optional settings
 
 about_enabled: true # Change to true if you wish to show an icon in the navigation that redirects to the about page
 baseurl: # Set if blog doesn't sit at the root of the domain (format: /blog)
-discus_identifier: # Add your Disqus identifier
+discus_identifier: czech-in-japan # Add your Disqus identifier
 ga_analytics: UA-48762418-2 # Add your GA Tracking Id
-local_fonts: false # Change to true if you wish to use local fonts
+local_fonts: true # Change to true if you wish to use local fonts
 rss_enabled: true # Change to false if not
-scrollappear_enabled: true # Change to false to disable
+scrollappear_enabled: false # Change to false to disable
 social:
   dribbble: # Add your Dribbble handle
   facebook: miloso # Add your Facebook handle

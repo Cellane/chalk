@@ -51,7 +51,19 @@
 
           {% if site.discus_identifier %}
             <div id="disqus_thread" class="article-comments"></div>
-            <script src="https://{{ site.discus_identifier }}.disqus.com/embed.js" async defer></script>
+            <script>
+              var disqus_config = function () {
+                this.page.url = '{{ site.discus_domain }}{{ page.url | relative_url }}';
+                this.page.identifier = '{{ page.url | relative_url }}';
+              };
+
+              (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://{{ site.discus_identifier }}.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+              </script>
             <noscript>Please enable JavaScript to view the comments.</noscript>
           {% endif %}
         </article>
