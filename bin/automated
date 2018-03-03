@@ -40,15 +40,16 @@ git push -f -q $ORIGIN_CREDENTIALS gh-pages
 git checkout -
 yarn install --modules-folder ./_assets/yarn
 
-# Purge Cloudfront cache
+# Purge Cloudflare cache
 echo "Purching Cloudflare cache…"
-curl -X "DELETE" "https://api.cloudflare.com/client/v4/zones/$CLOUDFRONT_ZONE_ID/purge_cache" \
+curl -X "DELETE" "https://api.cloudflare.com/client/v4/zones/$CLOUDFLARE_ZONE_ID/purge_cache" \
      -H 'Content-Type: application/json' \
-     -H "X-Auth-Email: $CLOUDFRONT_AUTH_EMAIL" \
-     -H "X-Auth-Key: $CLOUDFRONT_AUTH_KEY" \
+     -H "X-Auth-Email: $CLOUDFLARE_AUTH_EMAIL" \
+     -H "X-Auth-Key: $CLOUDFLARE_AUTH_KEY" \
      -d $'{
   "purge_everything": true
 }'
+echo
 
 echo "Deployed successfully!"
 
