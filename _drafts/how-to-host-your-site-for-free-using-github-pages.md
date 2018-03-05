@@ -41,14 +41,14 @@ pages that can be presented to the end user. The process of transformation is
 performed by a program called [Jekyll](https://jekyllrb.com/) and every step of
 it can be customized. This post, however, does not intend to focus on Jekyll
 directly, so if you're interested in that topic, I recommend checking out their
-[documentation](https://jekyllrb.com/docs/home/), it's very comprehensive.
+[documentation](https://jekyllrb.com/docs/home/), it's truly comprehensive.
 
 [^1]: Jekyll is actually not limited to having Markdown as an input for the
     transformation, but can also process Textile and Liquid documents or even
     raw HTML and CSS.
 
 GitHub Pages automatically converts your Jekyll project into a HTML site, with
-one caveat: it supports only a limited number of Jekyll plugins and templates;
+one caveat: it supports only a limited number of Jekyll plug-ins and templates;
 unfortunately for me, the template I chose, a beautifully simple template
 called [Chalk](https://github.com/nielsenramon/chalk), was not one of the
 supported ones. That means I had to adjust the typical Jekyll workflow a little
@@ -91,7 +91,7 @@ checkout the `gh-pages` branch and force-push the finished site into that
 branch, as GitHub Pages serves the content from the `gh-pages` branch as the
 website[^4].
 
-[^4]: Theoretically, Github Pages can also serve the content of the `master`
+[^4]: Theoretically, GitHub Pages can also serve the content of the `master`
     branch or from the `docs` subdirectory of the `master` branch. For my
     use-case, keeping the site's source code in the `master` branch and the
     compiled result in the `gh-pages` branch felt, however, like the cleanest
@@ -299,3 +299,7 @@ website?
 I think a better question is... why not? Putting all these pieces of puzzle
 together was really fun, and isn't that the most important thing when it comes
 to anything new in IT? :smirk:
+
+Should you have any questions regarding this setup, feel free to ask in the
+comments or get inspired by looking at the
+[source code of this very website](https://github.com/Cellane/milanvit.net).
