@@ -234,7 +234,7 @@ One last thing I needed to set up in Travis administration panel was a token
 for Danger to use when it wishes to spit out the spelling and grammar check
 results into a comment on a pull request -- that one is obtained on the
 [same page](https://github.com/settings/tokens) as the token for force pushing,
-but this time the scope should really be only `public_repo`, and the token
+except this time the scope should really be only `public_repo`, and the token
 should be stored under the name `DANGER_GITHUB_API_TOKEN`. You can't actually
 add it to your `.travis.yml` file as GitHub would detect it during your next
 push, send you a scary e-mail and deactivate the token. Sneaky bastard!
@@ -280,8 +280,8 @@ tell which site to serve and how.
 After painful waiting for DNS records to refresh all the way down to my
 computer, I had the site available on my domain. Success!
 
-Whenever I want to make a change (such as writing this very article), I create a
-new Git branch, start making changes, start committing and pushing them and at
+Whenever I want to make a change (such as writing this exact article), I create
+a new Git branch, start making changes, start committing and pushing them and at
 some point, open a
 [pull request](https://github.com/Cellane/milanvit.net/pulls?utf8=✓&q=). That
 triggers Travis to create a build out of that pull request, checking my
@@ -302,4 +302,4 @@ to anything new in IT? :smirk:
 
 Should you have any questions regarding this setup, feel free to ask in the
 comments or get inspired by looking at the
-[source code of this very website](https://github.com/Cellane/milanvit.net).
+[source code of this website](https://github.com/Cellane/milanvit.net).
