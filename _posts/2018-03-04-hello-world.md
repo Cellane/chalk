@@ -1,6 +1,7 @@
 ---
 title: Hello, world!
-description: "I hope nobody is counting the number of times I restarted my website. Do people actually still write blogs these days?"
+description: "I hope nobody is counting the number of times I restarted my
+    website. Do people actually still write blogs these days?"
 tags: [random]
 ---
 
@@ -14,7 +15,7 @@ hosting this website and delivering the content to you.
 I may describe it in greater detail in a future article, but just for the
 curious types out there, it involves Jekyll, GitHub Pages, Travis CI and has
 dependencies written in Python, Ruby and JavaScript. It couldn't turn into more
-of a hybrid if I tried, but hey – at least I won't feel the pressure to switch
+of a hybrid if I tried, but hey -- at least I won't feel the pressure to switch
 to this week's most popular JavaScript framework all the time. Oh, and the site
 is actually [fully open-source](https://github.com/Cellane/milanvit.net),
 because why not.
@@ -23,11 +24,12 @@ Anyway, if everything goes well in the few upcoming weeks, I should be steering
 my career as an iOS developer in a slightly unconventional direction. I was
 recently able to find a job in Tokyo, Japan and am currently in the process of
 obtaining work permission and visa. Once that's done, I'll hop on the first
-plane going in the general direction of the land of the rising sun and – fingers
-crossed, that will be something quite interesting to write about. I really want
-to get to know the Japanese work culture (I can already hear the voices saying
-"you will regret that wish!") and over time, integrate into their society to the
-best of my abilities. I'll be sure to include a lot of photos, too!
+plane going in the general direction of the land of the rising sun and --
+fingers crossed, that will be something quite interesting to write about. I
+really want to get to know the Japanese work culture (I can already hear the
+voices saying "you will regret that wish!") and over time, integrate into their
+society to the best of my abilities. I'll be sure to include a lot of photos,
+too!
 
 In fact, the steering might involve more moving over nine thousand kilometers
 to the east. This part is not quite confirmed yet but I have received strong
