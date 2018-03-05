@@ -85,3 +85,4 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jemoji
+timezone: Europe/Prague
