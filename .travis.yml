@@ -14,6 +14,7 @@ python: 3.4
 install:
   - ./bin/setup
 before_script:
+  - export TZ=Europe/Prague
   - sudo apt-get -qq update
   - sudo apt-get install -y aspell aspell-en
   - pip install --user proselint
