@@ -11,11 +11,11 @@ can share with you just how confusing and time-consuming it is to obtain all the
 legal documents a Czech person needs to obtain if he wishes to marry a citizen
 of Japan, in Japan.
 
-The very first obstacle you'll likely face is the utter lack of official
-government information on this topic. While I understand this is something
-that's likely relevant to only a very small percentage of Czech citizens, I
-would have still expected a better availability of information. Or, any
-information at all, for that matter.
+The first obstacle you'll likely face is the utter lack of official government
+information on this topic. While I understand this is something that's likely
+relevant to only quite a small percentage of Czech citizens, I would have still
+expected a better availability of information. Or, any information at all, for
+that matter.
 
 After consulting multiple sources including the Czech embassy in Japan and
 multiple registry offices, I'm fairly confident I have *the most definitive
@@ -29,8 +29,8 @@ different country combinations, it's not strictly specific to just Czech-Japan.
 As for me, the person coming to the foreign country and asking it to allow me to
 marry one of the country's citizens, most of the bureaucratic burden lies on my
 shoulders; on the other hand, my significant other will just simply have to
-present the very same documents she would have to present if she were to marry
-a local guy.
+present the same documents she would have to present if she were to marry a
+local guy.
 
 There's three parts of the Triforce that I will need to bring with me:
 
@@ -83,12 +83,12 @@ To obtain this certificate, you have to visit the registry office in the town of
 your permanent residence. Bring the original birth certificate, government ID
 and 500 Kč (&#8776;&nbsp;$24.2) with you; if your government ID doesn't contain
 your family status or the address of your permanent residence, you need to bring
-confirmations of both information first, and I'm quite frankly not very sure
-where to get these two confirmations as I didn't need to obtain these two.
+confirmations of both information first, and I'm quite frankly not sure where to
+get these two confirmations as I didn't need to obtain these two.
 
 You don't have to do this personally but having someone else request the
 certificate is a royal pain in the arse. You'll not only have to grant this
-person a very specific Power of Attorney that the registry office will keep
+person a really specific Power of Attorney that the registry office will keep
 (seriously, it can't be broad or generic Power of Attorney, it has to
 specifically mention that its sole purpose is requesting and accepting
 certificate of legal eligibility for marriage) and a copy of your government ID
