@@ -2,8 +2,8 @@ markdown_files = (git.modified_files + git.added_files).select do |line|
   line.end_with?(".md")
 end
 
-published_posts = markdown_files.select do |line|
-  line.start_with?("_posts/")
+published_posts = git.renamed_files.select do |entry|
+  entry[:before].start_with?("_drafts") && entry[:after].start_with?("_posts")
 end
 
 if github.pr_title =~ /\[#\d+\]/ && published_posts.length == 0
