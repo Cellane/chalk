@@ -6,7 +6,7 @@ end
 #  entry[:before].start_with?("_drafts") && entry[:after].start_with?("_posts")
 #end
 
-published_posts =markdown_files.select do |entry|
+published_posts = markdown_files.select do |entry|
   entry.start_with?("_posts")
 end
 
