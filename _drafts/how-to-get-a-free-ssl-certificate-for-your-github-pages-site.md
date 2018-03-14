@@ -34,9 +34,8 @@ for Cloudflare to start taking care of your domain.
 
 Once you fill in your domain name, your existing DNS records will be analysed
 and transferred over to Cloudflare. I'd recommend paying careful attention
-during this step as Cloudflare's auto-detection does fairly good, yet not quite
-perfect job (and unless I'm horribly mistaken, it actually can't do a 100%
-perfect job).
+during this step as Cloudflare's auto-detection does fairly good, yet not
+perfect job.
 
 In my case, Cloudflare was able to find apex domain's `A` record, apex domain's
 and `mail` & `www` subdomain's `CNAME` records, all `MX` records and apex
@@ -60,22 +59,22 @@ option is set to *Full*. You may also want to scroll down and turn *Always use
 HTTPS* to *On*, *Automatic HTTPS Rewrites* to *On* and if you care about your
 site's [SSL Labs rating](https://www.ssllabs.com/ssltest/)[^1], you may want to
 go through the configuration of the *HTTP Strict Transport Security (HSTS)*
-option; however, be **very careful** with the last one, read through all the
-warnings Cloudflare shows you and verify that Cloudflare already issued a SSL
-certificate for your domain (issuing may take a few minutes, and after all, you
-*just* signed up for the service -- so if the certificate is not ready yet, just
-be patient and return in a while :crocodile:) and that HTTPS is working
-correctly for your domain. I personally recommend first verifying that
-everything truly works, waiting a few days during which you test just HTTPS
-alone and if everything seems fine and dandy, go for the HSTS option. In order
-to score an A+ grade on the test, you need to set HSTS's *Max-Age* attribute to
-at least 6 months.
+option; however, be **incredibly careful** with the last one, read through all
+the warnings Cloudflare shows you and verify that Cloudflare already issued a
+SSL certificate for your domain (issuing may take a few minutes, and after all,
+you *just* signed up for the service -- so if the certificate is not ready yet,
+just be patient and return in a while :crocodile:) and that HTTPS is working
+correctly for your domain. I recommend first verifying that everything truly
+works, waiting a few days during which you test just HTTPS alone and if
+everything seems fine and dandy, go for the HSTS option. In order to score an
+A+ grade on the test, you need to set HSTS's *Max-Age* attribute to at least
+6 months.
 
 [^1]: If you want to improve your SSL Labs rating even further, you should add
     `CAA` DNS records for `comodoca.com`, `digicert.com` and `globalsign.com`
     issuers by following [this short tutorial](https://support.cloudflare.com/hc/en-us/articles/115000310792-Configuring-CAA-Records-).
 
-And that should do the trick! I very much recommend going through the entire
+And that should do the trick! I truly recommend going through the entire
 administration panel at this point -- there is a ton of hidden and useful
 features. In fact, let me briefly mention my favourite ones.
 
