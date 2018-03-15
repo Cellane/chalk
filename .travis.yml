@@ -28,7 +28,7 @@ after_success:
 env:
   global:
   - NOKOGIRI_USE_SYSTEM_LIBRARIES: true
-  - GITHUB_USERNAME: "Milan Vit"
+  - GITHUB_USERNAME: Milan\ Vit
   - GITHUB_EMAIL: milanvit@milanvit.net
   - CLOUDFLARE_ZONE_ID: 9f7f8ee361f355357f2463e64a170d0f
   - CLOUDFLARE_AUTH_EMAIL: milanvit@milanvit.net
