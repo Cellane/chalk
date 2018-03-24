@@ -1,9 +1,9 @@
 ---
-title: How to host your site for free using GitHub Pages
-description: And not just host, but also set your site up to work on a custom
+title: "How to host your site for free using GitHub Pages"
+description: "And not just host, but also set your site up to work on a custom
     domain and automate deployment using Travis CI. Automatic spell and grammar
-    check included!
-tags: [web]
+    check included!"
+tags: [web, jekyll]
 ---
 
 There's at least a hundred different ways to create your own blog/personal site,

@@ -1,7 +1,7 @@
 ---
-title: How to marry a Japanese girl
-description: A brief description of the legal hell you throw yourself into the
-    moment you and your loved one decide to have an international marriage.
+title: "How to marry a Japanese girl"
+description: "A brief description of the legal hell you throw yourself into the
+    moment you and your loved one decide to have an international marriage."
 tags: [japan]
 ---
 
