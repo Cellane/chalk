@@ -2,7 +2,7 @@
 
 blog_theme: dark # Or use dark
 name: Czech/in/Japan
-paginate: 10
+paginate: 5
 url: https://www.milanvit.net # add your site url (format: https://example.com)
 discus_domain: https://www.milanvit.net
 
