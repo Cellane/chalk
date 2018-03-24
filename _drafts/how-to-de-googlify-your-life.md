@@ -22,7 +22,7 @@ experience after a few weeks of using them.
 Before I get to that though, I would still want to just briefly touch the topic
 of my personal disdain for Google. I don't like how the company tailors the
 search results to what they think you'd like -- such behaviour only encloses you
-in an echo-chamber of opinions that are the same as yours, or at least very
+in an echo-chamber of opinions that are the same as yours, or at least somewhat
 similar to yours, carefully making sure not to present anything that could
 potentially offend you, or worse yet, force you to think critically for a
 moment[^1]. Furthermore, I nowadays find myself much less willing than I was
