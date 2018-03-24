@@ -1,5 +1,5 @@
 ---
-title: Hello, world!
+title: "Hello, world!"
 description: "I hope nobody is counting the number of times I restarted my
     website. Do people actually still write blogs these days?"
 tags: [random]

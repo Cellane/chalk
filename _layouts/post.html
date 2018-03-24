@@ -49,7 +49,7 @@
             </a>
           </div>
 
-          {% if site.discus_identifier %}
+          {% if jekyll.environment != "development" and site.discus_identifier %}
             <div id="disqus_thread" class="article-comments"></div>
             <script>
               var disqus_config = function () {
