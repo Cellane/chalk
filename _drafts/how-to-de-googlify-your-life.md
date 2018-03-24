@@ -19,21 +19,21 @@ this article, after all, isn't for the most part political -- its main goal is
 to introduce a couple of alternatives to popular Google products and tell you my
 experience after a few weeks of using them.
 
-Before I get to that though, I would still want to just very briefly touch the
-topic of my personal disdain for Google. I don't like how the company tailors
-the search results to what they think you'd like -- such behaviour only encloses
-you in an echo-chamber of opinions that are the same as yours, or at least very
+Before I get to that though, I would still want to just briefly touch the topic
+of my personal disdain for Google. I don't like how the company tailors the
+search results to what they think you'd like -- such behaviour only encloses you
+in an echo-chamber of opinions that are the same as yours, or at least very
 similar to yours, carefully making sure not to present anything that could
 potentially offend you, or worse yet, force you to think critically for a
 moment[^1]. Furthermore, I nowadays find myself much less willing than I was
 just a few years ago to give up all of my personal data to a company that seems
 to be so strongly affected by the current politics, the modern left, the social
-justice movement[^2] and diversity of color -- but not by diversity of thoughts.
-And while the entire story about James Damore and his "Google Memo" is simply
-atrocious and shows poor judgement and misguides principles at work at all
-levels of management at Google, I feel like this is just the tip of the iceberg
-and we'll see similar stories in the future. Boy, am I glad that by the time
-that happens, I will not be on board of the Google ship any more!
+justice movement[^2] and diversity of colour -- but not by diversity of
+thoughts. And while the entire story about James Damore and his "Google Memo" is
+simply atrocious and shows poor judgement and misguides principles at work at
+all levels of management at Google, I feel like this is just the tip of the
+iceberg and we'll see similar stories in the future. Boy, am I glad that by the
+time that happens, I will not be on board of the Google ship any more!
 
 [^1]: Admittedly, this trend has been recently replaced somewhat with a
     straight-up removal of any content that's not deemed "politically correct".
@@ -54,7 +54,7 @@ longer.
 Let's start with a surprisingly simple replacement: Google Search. I know it
 sounds truly terrifying at first -- how could a person possibly function on the
 Internet without the friendly uncle Google Search? Well, I haven't used Google
-Search (besides a few very rare and minor exceptions that happened when I was
+Search (besides a few rare and minor exceptions that happened when I was
 searching for things truly obscure) in over half a year and as you can see, I
 have clearly survived.
 
@@ -101,7 +101,7 @@ honestly can not recommend it enough.
 So far, so good, but I knew getting rid of Gmail and G Suite would be... a bit
 more painful. Ever since I started using StartPage as the search engine of
 choice, I had my eyes on [StartMail](https://www.startmail.com/) as a Gmail
-replacement but ultimately decided against it thanks to the very recent
+replacement but ultimately decided against it thanks to the rather recent
 discovery of [Zoho Workplace](https://www.zoho.eu/workplace/). Unlike StartMail,
 their webmail client doesn't support the PGP encryption which is utterly
 unfortunate, but the entire suite offers so much more than just a mail server:
@@ -120,14 +120,15 @@ pricing is fair nor just because they seem to be focused on their users'
 privacy; what intrigues me the most is the sheer amount of products they develop
 at the same time. Besides the ones I already mentioned above, they also have
 similar application bundles that form a CRM system and an accounting system, and
-then they still have a ton of additional standalone applications: not one, but
+then they still have a ton of additional stand-alone applications: not one, but
 two different project management systems, a bug tracker, a password manager for
 teams, a web conference platform, a wiki system, a help-desk system, an HR
 system, a recruitment system... It's simply mind-blowing[^4]!
 
 [^4]: By the way, I really wonder what it must feel like to work in a company
-    that thoroughly and properly uses all of Zoho products and takes advantage
-    of the integration.
+    that thoroughly and properly uses a lot of Zoho products and takes advantage
+    of having most work-related tools this tightly integrated. Just thinking
+    about the level of integration almost makes me drool :yum:
 
 The migration itself was nerve-wracking but actually rather simple, as Zoho's
 wizard leads you through the entire process. It starts with changing your
@@ -142,20 +143,21 @@ transfer all e-mails via POP3 or IMAP, the latter being a much better and faster
 choice -- all of that can be performed either for a single user or in case of
 organizations, even for multiple users at the same time.
 
-Overall, I'm very happy with Zoho Mail so far, and I can't wait until I have a
-bit of time to try out their mobile applications. If I could wish for three
-improvements, it would be a PGP support in their webmail, fixing sent e-mail
-duplication when sending messages over SMTP and improving importing of contacts
--- I still wasn't able to successfully complete that one, but it frankly doesn't
-bother me too much. For £24 per user per year, I can happily recommend Zoho to
-anyone.
+Overall, I'm pleasantly surprised with Zoho Mail so far, and I can't wait until
+I have a bit of time to try out their mobile applications. If I could wish for
+three improvements, it would be a PGP support in their webmail, fixing sent
+e-mail duplication when sending messages over SMTP and improving importing of
+contacts -- I still wasn't able to successfully complete that one, but it
+frankly doesn't bother me too much. For £24 per user per year, I can happily
+recommend Zoho to anyone.
 
 ## Stepping into Google Docs' shoes
 
 Well, I kind of spoiled this one in the previous section, haven't I? As I
 mentioned there, Zoho Docs replaced Google Docs and Google Disc for me. I
 noticed that Zoho Docs is not nearly as snappy as Google Docs on my computer,
-but due to my infrequent usage of either service, I honestly couldn't care less.
+although due to my infrequent usage of either service, I honestly couldn't care
+less.
 
 ## Superseding Google DNS
 
@@ -168,8 +170,9 @@ thought of using that particular IP address. If you can't live without
 having specified an alternate DNS server, the IP address for that one is
 somewhat less memorable `149.112.112.112`. Quad9's
 [privacy policy](https://www.quad9.net/privacy/) is not perfect but it seems
-fair enough. In the past, I remember using [OpenDNS](https://www.opendns.com/)
-but I noticed they were bought by Cisco and I'm not sure how I feel about that.
+fair enough. In the past, I remember using [OpenDNS](https://www.opendns.com/);
+however, I noticed they were bought by Cisco a few years back and I'm not sure
+how I feel about that.
 
 ## What about the rest?
 
@@ -194,4 +197,7 @@ The last two Google services I regularly use and can remember right now is
 Google Translate, which really has no similar competitors as far as I can tell,
 and Google Analytics, which I could stop using at any moment, but then again --
 I don't think even Google can read any meaningful data from the site that sees
-five and half visitors on a good day.
+five and a half visitors on a good day -- and I bet that's only going to get
+worse after publishing this article, considering
+[Google's love for filtering articles that portray Google in negative light](https://gizmodo.com/yes-google-uses-its-power-to-quash-ideas-it-doesn-t-li-1798646437)
+out of the search results.
