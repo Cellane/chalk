@@ -2,9 +2,9 @@
 title: "How to get a free SSL certificate for your GitHub Pages site"
 description: "In the first article on this site, I described a way to host your
     site or blog on GitHub Pages while having it accessible via your own domain.
-    I left the article with one thing left unsolved&#58; the site was not
-    accessible via HTTPS, and something like that would not fly in <em>current
-    year</em>. Let us see how one can fix that – for free."
+    I left the article with one thing left unsolved: the site was not accessible
+    via HTTPS, and something like that would not fly in <em>current year</em>.
+    Let us see how one can fix that – for free."
 tags: [web]
 ---
 

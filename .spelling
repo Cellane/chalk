@@ -1,12 +1,14 @@
 # Add words you want `mdspell` to ignore here.
 
 # Technology
+alt
 Brotli
 Buttflare
 Cloudflare
 DuckDuckGo
 Namecheap
 OpenDNS
+png
 StartMail
 StartPage
 Tumblr
@@ -20,6 +22,7 @@ apostille
 CzechPoint
 Damore
 Kč
+tidbit
 Triforce
 Zelda
 
