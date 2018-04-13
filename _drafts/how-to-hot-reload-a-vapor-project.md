@@ -19,11 +19,11 @@ actually.
 Ice is a much more user-friendly interface to Swift Package Manager while
 retaining a full compatibility with SPM, meaning you can mix and match SPM
 commands with Ice commands and your project should safely survive. Its output
-is clean and colorful[^1], it can add new dependencies to your `Package.swift`
+is clean and colourful[^1], it can add new dependencies to your `Package.swift`
 file as well as manage targets and projects. It even has its own small registry
 for all sorts of packages you can add to your project[^2]!
 
-[^1]: Actually, the output should be colorful but for some reason, it's not in
+[^1]: Actually, the output should be colourful but for some reason, it's not in
     my terminal, as I just realized. I wonder if that's an issue of Ice or of my
     shell configuration :no_mouth:
 
@@ -31,11 +31,12 @@ for all sorts of packages you can add to your project[^2]!
     [Awesome Vapor](https://github.com/Cellane/awesome-vapor) repository I'm
     maintaining.
 
-But why am I talking about some sort of SPM interface when I promised to be
-talking about hot reload? As it turns out, one of the features that SPM doesn't
-have and Ice adds to the mix is watching the filesystem for changes and
-rebuilding your project anytime it detects one. You can do so by issuing the
-`ice run -w` command, where the `-w` stands for "watch".
+You are probably wondering why am I talking about some sort of SPM interface
+when I promised to be talking about hot reload? As it turns out, one of the
+features that SPM doesn't have and Ice adds to the mix is watching the
+filesystem for changes and rebuilding your project anytime it detects one. You
+can do so by issuing the `ice run -w` command, where the `-w` stands for
+"watch".
 
 I've been playing with this feature on and off for the past few days and...
 while it's useful, it's definitely not perfect. Rebuilding a nearly empty
