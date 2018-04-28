@@ -30,18 +30,18 @@ welcome". I think at this point I might not have alone in feeling a fit freaked
 out, so another agency (ALTEGRA) was called to help with the housing
 arrangements.
 
-A representative from ALTEGRA, Emma, got in touch with me very quickly, found
-out what exactly I expect from my future apartment and told me that she'll find
-something for me in exactly two days -- and in exactly two days, she did, in
-fact she came up with a couple of options, so I could even be relatively picky.
-Due to both apartments being really similar, I chose the one that was closer to
-my work (commuting takes only around ~25 minutes, which is really awesome for
-Tokyo). It was possible to reserve the apartment online for my name, but
-unfortunately signing the actual contract would have to be done in person, so I
-was given a few instructions regarding what to do and say at immigration office
-when arriving in Japan and where to go to sign the contract. I can not describe
-the feeling of relief I felt at that moment, as I was getting worried that
-sleeping on a bench in a park might be a reality in my immediate future.
+A representative from ALTEGRA, Emma, got in touch with me incredibly quickly,
+found out what exactly I expect from my future apartment and told me that she'll
+find something for me in exactly two days -- and in exactly two days, she did,
+in fact she came up with a couple of options, so I could even be relatively
+picky. Due to both apartments being really similar, I chose the one that was
+closer to my work (commuting takes only around ~25 minutes, which is really
+awesome for Tokyo). It was possible to reserve the apartment online for my name,
+but unfortunately signing the actual contract would have to be done in person,
+so I was given a few instructions regarding what to do and say at immigration
+office when arriving in Japan and where to go to sign the contract. I can not
+describe the feeling of relief I felt at that moment, as I was getting worried
+that sleeping on a bench in a park might be a reality in my immediate future.
 
 Unfortunately, in the end, not everything went as smoothly as I imagined it
 would.
@@ -130,7 +130,7 @@ a smartphone app.
 
 I swear I'm not making this up.
 
-Thankfully, just buying normal WiFi router on the very next day and throwing
-that old joke of a router into the recycled trash (remember, we're in Japan)
-solved my issues immediately and suddenly, I'm enjoying a symmetrical 100/100
-Mbps connection.
+In the end, buying a normal Wi-Fi router on the very next day and throwing that
+old joke of a router into the recycled trash (remember, we're in Japan) solved
+my issues immediately and suddenly, I'm enjoying a symmetrical 100/100 Mbps
+connection.
