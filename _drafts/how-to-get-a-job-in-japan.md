@@ -44,6 +44,12 @@ interested in pursuing this option, you should definitely check
 about the gap it would create in my résumé and how it could affect obtaining my
 next job in IT much more difficult, so I decided to find a job related to IT.
 
+One thing that should be noted, however, is that if you decide to go with either
+of these language programmes, you won't be able to choose a location within
+Japan. You may express a preference but chances are you end up in some rural
+area of Japan, which can be interesting but it may not be what you're looking
+for.
+
 ## How long will it take?
 
 The second question you don't have to, but really want to ask yourself is -- how
