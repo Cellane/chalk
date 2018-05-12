@@ -161,7 +161,7 @@ Finally, be prepared that some companies will actually not be interested in our
 western-style résumé at all, and they'll instead require you to send in a
 履歴書 (rirekisho). I'm not even going to go into details about how much fun it
 is to write this document but in case you needed help,
-[there are articles](https://blog.gaijinpot.com/write-japanese-résumé/)
+[there are articles](https://blog.gaijinpot.com/write-japanese-resume/)
 [on the Internet](http://tokyographicdesigners.com/the-guide/how-to-complete-a-rirekisho/)
 that will help you slightly.
 
