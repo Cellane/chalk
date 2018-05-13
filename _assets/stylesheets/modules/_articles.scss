@@ -160,6 +160,17 @@
     display: block;
     margin-bottom: 30px;
   }
+  figure {
+    margin: 0;
+  }
+  figure img {
+    margin-bottom: 0px;
+  }
+  figure figcaption {
+    font-style: italic;
+    margin-top: 10px;
+    margin-bottom: 30px;
+  }
   h2,
   h3,
   h4 {
