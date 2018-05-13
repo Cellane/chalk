@@ -44,13 +44,13 @@ tags: [gallery, japan]
     top to bottom, left to right, there’s rice cooker, kettle, microwave
     oven/toaster/regular oven all in one (not kidding) and then just some
     generic storage. The towels are unfortunately necessary for not damaging the
-    very fragile floor that looks like wood but is not wood at all."
+    incredibly fragile floor that looks like wood but is not wood at all."
     caption="I’m perhaps unreasonably proud for picking and assembling this
     shelf, but I just love how it looks and how perfectly it fits in there. From
     top to bottom, left to right, there’s rice cooker, kettle, microwave
     oven/toaster/regular oven all in one (not kidding) and then just some
     generic storage. The towels are unfortunately necessary for not damaging the
-    very fragile floor that looks like wood but is not wood at all."
+    incredibly fragile floor that looks like wood but is not wood at all."
 %}
 
 {% include image.html path="2018-05-13-my-apartment-5.jpg"
@@ -131,10 +131,10 @@ tags: [gallery, japan]
     path-detail="2018-05-13-my-apartment-12.jpg"
     alt="Another look into the street. It’s seriously a quiet area, cars are
     even forbidden from entering the street my apartment is at. Which is even
-    more amazing considering I’m living very close to the center of Tokyo."
+    more amazing considering I’m living quite close to the centre of Tokyo."
     caption="Another look into the street. It’s seriously a quiet area, cars are
     even forbidden from entering the street my apartment is at. Which is even
-    more amazing considering I’m living very close to the center of Tokyo."
+    more amazing considering I’m living quite close to the centre of Tokyo."
 %}
 
 {% include image.html path="2018-05-13-my-apartment-13.jpg"
