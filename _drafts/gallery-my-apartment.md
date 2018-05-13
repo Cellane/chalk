@@ -165,14 +165,14 @@ tags: [gallery, japan]
 
 {% include image.html path="2018-05-13-my-apartment-16.jpg"
     path-detail="2018-05-13-my-apartment-16.jpg"
-    alt="And this demonstrates that the nice and tidy apartment can be very
-    quickly transformed into a pile of :shit: and garbage. Really, living the
-    first two weeks without a furniture was… not exactly easy. Looking back, I’m
-    not sure how I was able to survive for three months without a furniture in
-    Texas back in the day."
-    caption="And this demonstrates that the nice and tidy apartment can be very
-    quickly transformed into a pile of :shit: and garbage. Really, living the
-    first two weeks without a furniture was… not exactly easy. Looking back, I’m
-    not sure how I was able to survive for three months without a furniture in
-    Texas back in the day."
+    alt="And this demonstrates that the nice and tidy apartment can be
+    surprisingly quickly transformed into a pile of :shit: and garbage. Really,
+    living the first two weeks without a furniture was… not exactly easy.
+    Looking back, I’m not sure how I was able to survive for three months
+    without a furniture in Texas back in the day."
+    caption="And this demonstrates that the nice and tidy apartment can be
+    surprisingly quickly transformed into a pile of :shit: and garbage. Really,
+    living the first two weeks without a furniture was… not exactly easy.
+    Looking back, I’m not sure how I was able to survive for three months
+    without a furniture in Texas back in the day."
 %}
