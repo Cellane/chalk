@@ -14,7 +14,7 @@ first time in my life, I got to purchase a one-way flight ticket only.
 
 [^1]: Via Warsaw this time, keeping alive the tradition that anytime I go to
     Japan, I have a layover in a different city. So far, I can cross Paris,
-    Amsterdam, Helsinki and Frankfurt from the pointless :bucket: bucket list.
+    Amsterdam, Helsinki and Frankfurt from the pointless bucket list.
 
 {% include image.html path="2018-04-03-flight-tickets.png"
     path-detail="2018-04-03-flight-tickets@2x.png" alt="Flight tickets"

@@ -18,70 +18,70 @@ little bit.
 
 After communicating my flight information with my future company (Monstar Lab)
 and the agency that helped me get the job (INNTEGRA), we decided that the best
-course of action due to the limited time available to use would be placing me in
-a shared house for a month during which I'd find an apartment on my own. Shared
+course of action due to the limited time available would be placing me in a
+shared house for a month during which I'd find an apartment on my own. Shared
 house, by the way, is exactly what it sounds like -- a place shared by multiple
 people (usually between three and sixteen) with shared common areas but separate
 bedrooms for everyone. However, after exchanging a few e-mails with Monstar Lab
 and several shared houses, it turned out that this approach is not a correct one
 either -- apparently when shared house says in the advertisement that
 "foreigners are welcome", it really means "foreigners who can speak Japanese
-welcome". I think at this point I might not have alone in feeling a fit freaked
+welcome". I think at this point I might not have alone in feeling a bit freaked
 out, so another agency (ALTEGRA) was called to help with the housing
 arrangements.
 
 A representative from ALTEGRA, Emma, got in touch with me incredibly quickly,
-found out what exactly I expect from my future apartment and told me that she'll
-find something for me in exactly two days -- and in exactly two days, she did,
-in fact she came up with a couple of options, so I could even be relatively
-picky. Due to both apartments being really similar, I chose the one that was
-closer to my work (commuting takes only around ~25 minutes, which is really
-awesome for Tokyo). It was possible to reserve the apartment online for my name,
-but unfortunately signing the actual contract would have to be done in person,
-so I was given a few instructions regarding what to do and say at immigration
-office when arriving in Japan and where to go to sign the contract. I can not
-describe the feeling of relief I felt at that moment, as I was getting worried
-that sleeping on a bench in a park might be a reality in my immediate future.
+found out exactly what I expect from my future apartment and told me that she'll
+find something for me in two days -- and in exactly two days, she did; in fact
+she came up with a couple of options, so I could even be relatively picky. Due
+to both apartments being really similar, I chose the one that was closer to my
+work (commuting takes only around ~25 minutes, which is really awesome for
+Tokyo). It was possible to reserve the apartment online for my name, but
+unfortunately signing the actual contract would have to be done in person, so I
+was given a few instructions regarding what to do and say at the immigration
+office when arriving in Japan and where to go to sign the contract. It started
+to look like I can abandon my plan of sleeping on a bench in a park!
 
-Unfortunately, in the end, not everything went as smoothly as I imagined it
-would.
+Unfortunately not everything went as smoothly as I imagined it would.
 
 After arriving in Japan, I had no trouble exchanging my hard-earned Certificate
 of Eligibility for a Residence Card, grabbed my two pieces of luggage which
 represent my life now, boarded the Narita Express in the direction of Tokyo and
 left the train at Shibuya station, which is the train station closest to the
-real estate agency that would be renting me a brand new apartment. After a
+real estate agency that would be renting me a brand new[^1] apartment. After a
 while of walking around that place, I found the office, entered, introduced
 myself, asked if English is fine, got back answer that English is not fine and
 I felt my heart sinking. I tried to communicate in a broken Japanese my
-intentions but in the end, we just mutually gave up, I gave the people there a
-phone number for Emma and crossed my fingers that everything. About an hour and
-few more phone calls later, Anne from INNTEGRA suddenly appeared at the office
-along with her boss in order to save my sorry ass.
+intentions but in the end, we just mutually gave up, I gave the workers there a
+phone number for Emma and crossed my fingers. About an hour and few phone calls
+later, Anne from INNTEGRA suddenly appeared at the office along with her boss in
+order to save my sorry ass.
 
-However, what looked like a simple task -- sign a contract, get the keys -- in
-the beginning turned out to be an activity for an entire day. First, we needed
-to sign the contract after filling a couple of forms, which went almost smoothly
+[^1]: Technically, a fifteen years old apartment -- but a brand new for me.
+
+However, what looked in the beginning like a simple task -- sign a contract, get
+the keys -- turned out to be an activity for an entire day. First, we needed to
+sign the contract after filling a couple of forms, which went almost smoothly
 this time if it wasn't for the fact that I, of course, didn't have a Japanese
-phone number at that time yet (foolishly wanting to sort out a place to live
-first).
+phone number at that time yet (obviously -- since I can't have a phone number
+without a bank account, and I can't have a bank account without an apartment).
 
 After that, the people from the real estate agency had a look at my Residency
-Card and unfortunately, they were not pleased -- the address was not filled[^1],
+Card and unfortunately, they were not pleased -- the address was not filled[^2],
 so before handing me the keys, that had to be fixed first, which resulted in a
 trip to Shinagawa city hall, waiting few minutes until we can hand an Address
 Change Request form to the city hall workers, then proceeding to wait for 30
 more minutes until they put my new address onto the Residency Card. After we
 were done with this ordeal, a trip back to Shibuya was necessary just to finish
-all the paperwork, pay first 1.5 months of rent and finally obtain my keys --
-except that the last part didn't happen because the Shibuya branch of this real
-estate agency doesn't hand out keys, apparently, so a quick trip to Shinjuku
-branch was the last step, a final boss to fight in order to get my apartment.
-Fortunately, this part finally went without a hitch, and after about 6 hours of
-travelling around Tokyo, filling forms and signing papers, I could go to my new
-home in Shinagawa.
+all the paperwork, pay the first 1.5 months of rent and finally obtain my keys
+-- except that the last part didn't happen because the Shibuya branch of this
+real estate agency doesn't hand out keys (of course) so a quick trip to a
+Shinjuku branch was the last step, a final boss to fight in order to get my
+apartment. Fortunately, this part finally went without a hitch, and after about
+6 hours of travelling around Tokyo, filling forms and signing papers, I could go
+to my new home in Shinagawa.
 
-[^1]: I was instructed by Emma to have the Immigration Office fill in an address
+[^2]: I was instructed by Emma to have the Immigration Office fill in an address
     of my fiancée in Joyo, Kyoto prefecture into my Residence Card. Why they
     didn't do that, I'll never know, but maybe -- maybe it was actually a
     blessing in disguise in the end. Apparently, if they put that address in, I
@@ -94,16 +94,20 @@ And to slowly finish up, I shouldn't forget that Emma, Anne and her boss weren't
 the only people whose help I gladly received -- my lovely fiancée already in
 advance made sure that electricity, water and gas is enabled for the apartment,
 and my only task was to be at the apartment by 5 PM to welcome a person from the
-gas company that would quickly inspect all the equipment. Needless to say, due
-to all the paperwork that I had to undergo on that day, I didn't make it back to
+gas company that would quickly inspect all the equipment and get the gas going
+so that I don't have to shower in a ice cold water[^3]. Needless to say, due to
+all the paperwork that I had to undergo on that day, I didn't make it back to
 the apartment at 5 PM exactly, but fortunately the gas inspector arrived at
 around 5:45 PM and I was already in the process of unpacking at that point.
+
+[^3]: Unlike in Czech Republic, most houses in Japan don't receive both hot and
+    cold water but only the latter.
 
 Finally, shortly after 6 PM the doorbell rang again, this time due to a futon
 delivery, also a courtesy of my fiancée -- and the timing meant I don't have to
 sleep on the carpet for even one night -- which was especially appreciated
 thanks to the fact that right the very next day was my first day at new work!
-But more about that in another article.
+But more about that in another article, maybe.
 
 Finally, let me close this article with a funny/sad story about getting an
 access to the Internet in my new apartment. While Internet contract is actually
@@ -124,9 +128,9 @@ to be unplugged and plugged back to electricity.
 The only way to remove this one-hour restriction was to perform a first-time
 setup. Normally, that wouldn't be a problem, as any router I have ever seen is
 easily configurable via a web interface, but not this devil's invention. To
-configure this weird router, one has to plug it into a TV via the router's HDMI
-out and navigate the on-screen menus by tapping remote control-like buttons in
-a smartphone app.
+configure this weird abomination, one has to plug it into a TV via the router's
+HDMI out and navigate the on-screen menus by tapping remote control-like buttons
+in a smartphone app.
 
 I swear I'm not making this up.
 
