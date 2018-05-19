@@ -165,6 +165,32 @@ is to write this document but in case you needed help,
 [on the Internet](http://tokyographicdesigners.com/the-guide/how-to-complete-a-rirekisho/)
 that will help you slightly.
 
+## I got a job, now what?
+
+First of all, congratulations, you're almost here! Depending on your position
+and visas sub-type, you'll probably need to supply a few documents to your
+future company (who will serve as your visas guarantor) -- very likely your
+photo, quite likely also university diplomas translated to English. I went for a
+court-verified translation but I'm still not sure if it was strictly necessary;
+on the other hand, official instructions say that even court-verified
+translation is not sufficient and an translation with an apostille must be
+supplied, but that was not my case.
+
+After your future employer has collected everything for the Certificate of
+Eligibility application, you can try (and fail) to forget about Japan for the
+next three months, because nothing will happen -- until one day, you get an
+e-mail from your company, saying that the Certificate of Eligibility was issued
+and then the very next day, it will magically arrive in your hands -- at least
+that was my case and I think Czech Post should really look into this -- I mean,
+apparently it *is* possible to deliver a package within one day and not lose it
+three times during the process!
+
+With the Certificate of Eligibility, you can schedule a visit to the Japanese
+embassy or consulate (if I remember correctly, you'll need to bring another
+photo), fill in a simple form once you're there and within no more than few
+days, the visas is finally yours. Just don't forget to arrive in Japan within
+three months after that, or your visas become invalid.
+
 I think that's all the advice I can think of right now. Should you wish to take
 this journey, I definitely wish you the best of luck and feel free to reach out
 to me if anything was unclear and I'll try to help in any way I can. Finally,
