@@ -315,7 +315,7 @@ options:
 - **Image name**: `gcr.io/kubernetes-sandbox-205712/$REPO_NAME:$TAG_NAME` (make
     sure to replace the project name with your project name, of course)
 
-Confirm by clicking the **Create trigger** button and return back to terminal:
+Confirm by clicking the **Create trigger** button and return to the terminal:
 let's test the trigger by pushing a tag to our repository!
 
 {% include image.html path="2018-05-30-kubernetes-6.png"
@@ -503,7 +503,7 @@ of desired pods, used load balancer and database URL.
 - **Max Unavailable**: 0%
 - **Load Balancers**: `tilapp-vapor-production`
 - **Capacity**: 8
-- **Enviromental Variables**:
+- **Environmental Variables**:
   - **Name**: `DATABASE_URL`
   - **Value**: `postgres://postgres:password@db-production-postgresql.default.svc.cluster.local:5432/vapor`
 - **Pull Policy**: `ALWAYS`
