@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Czech/in/Japan | How to get a free SSL certificate for your GitHub Pages site</title>
+  <meta name="description" content="In the first article on this site, I described a way to host your site or blog on GitHub Pages while having it accessible via your own domain. I left the article with one thing left unsolved: the site was not accessible via HTTPS, and something like that would not fly in <em>current year</em>. Let us see how one can fix that – for free.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="How to get a free SSL certificate for your GitHub Pages site">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site">
+  <meta property="og:description" content="In the first article on this site, I described a way to host your site or blog on GitHub Pages while having it accessible via your own domain. I left the article with one thing left unsolved: the site was not accessible via HTTPS, and something like that would not fly in <em>current year</em>. Let us see how one can fix that – for free.">
+  <meta property="og:site_name" content="Czech/in/Japan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site">
+  <meta name="twitter:title" content="How to get a free SSL certificate for your GitHub Pages site">
+  <meta name="twitter:description" content="In the first article on this site, I described a way to host your site or blog on GitHub Pages while having it accessible via your own domain. I left the article with one thing left unsolved: the site was not accessible via HTTPS, and something like that would not fly in <em>current year</em>. Let us see how one can fix that – for free.">
+
+  
+    <meta property="og:image" content="https://www.milanvit.net/assets/og-image-bca1a468cbe16cb1cd7ec48b1f3a230055493f9f1af68053377df52daabb353a.jpg">
+    <meta name="twitter:image" content="https://www.milanvit.net/assets/og-image-bca1a468cbe16cb1cd7ec48b1f3a230055493f9f1af68053377df52daabb353a.jpg">
+  
+
+  <link href="https://www.milanvit.net/feed.xml" type="application/rss+xml" rel="alternate" title="Czech/in/Japan Last 10 blog posts" />
+
+  
+    <link rel="stylesheet" type="text/css" integrity="sha256-hdqzaNBWtdZkGPv9flWonzT2RO6BHIIYyBAXIEQmEhs=" crossorigin="anonymous" href="/assets/fonts-85dab368d056b5d66418fbfd7e55a89f34f644ee811c8218c81017204426121b.css">
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-dark-fac4856bcfeff3a961d7e0e8aed66d092c0310d947b9aa4df542239cc0d38972.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon-dark-7b846b796b765f9e202256472fcdfd8c46fa745b74b1f937f105ff2a89e01ae5.png">
+    <link rel="stylesheet" type="text/css" integrity="sha256-Kp4Uw6GpoPhKmWJNsTsGogCMKnKpHo8f19j+uYQ5mw8=" crossorigin="anonymous" href="/assets/dark-2a9e14c3a1a9a0f84a99624db13b06a2008c2a72a91e8f1fd7d8feb984399b0f.css">
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav ">
+  <a href="/" class="header-logo" title="Czech/in/Japan">Czech/in/Japan</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://twitter.com/miloso" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter" xlink:href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/miloso" rel="noreferrer noopener" target="_blank" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook">
+  <use href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook" xlink:href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/Cellane" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://keybase.io/Cellane" rel="noreferrer noopener" target="_blank" title="Keybase">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-keybase">
+  <use href="/assets/keybase-4004cb8fb3e3f1f748f19fbea8a591d0bf5a00865e53977d673f2b09fcabf6e4.svg#icon-keybase" xlink:href="/assets/keybase-4004cb8fb3e3f1f748f19fbea8a591d0bf5a00865e53977d673f2b09fcabf6e4.svg#icon-keybase"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/vitmilan" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:milanvit@milanvit.net" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss" xlink:href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article ">
+          <header class="article-header">
+            <h1>How to get a free SSL certificate for your GitHub Pages site</h1>
+            <p>In the first article on this site, I described a way to host your site or blog on GitHub Pages while having it accessible via your own domain. I left the article with one thing left unsolved: the site was not accessible via HTTPS, and something like that would not fly in <em>current year</em>. Let us see how one can fix that – for free.</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                March 14, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  5 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/web">web</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>While GitHub Pages issues a free SSL certificate for you if you access your site
+via the <code class="highlighter-rouge">github.io</code> domain, it unfortunately cannot (yet?) generate a
+certificate for your custom domain. Well, worry not, this is easily solvable by
+using <a href="https://www.cloudflare.com">Cloudflare</a> (also known as Buttflare to the
+users of the extremely useful
+<a href="https://chrome.google.com/webstore/detail/cloud-to-butt-plus/apmlngnhgbnjpajelfkmabhkfapgnoai">Cloud to Butt</a>
+Chrome extension <img class="emoji" title=":peach:" alt=":peach:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f351.png" height="20" width="20">).</p>
+
+<p>Cloudflare is many things: it’s a reverse cache proxy, a content delivery
+network, a DNS provider, it saves you traffic by compressing and minifying your
+site, it protects your site from DDoS attacks and content scraping, modifies
+your site on the fly with Cloudflare applications and it even prepares the
+coffee in the morning for you <img class="emoji" title=":coffee:" alt=":coffee:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/2615.png" height="20" width="20">. Also, I might be lying about the last
+thing.</p>
+
+<p>Anyhow, without further ado, here’s how I did it for my site.</p>
+
+<h2 id="setting-up-cloudflare">Setting up Cloudflare</h2>
+
+<p>Like any proper IT fairytale, it all started with registering a new account with
+<a href="https://www.cloudflare.com">Cloudflare</a>. After you’re done with that, you’ll be
+taken to a configuration wizard that will lead you through the steps necessary
+for Cloudflare to start taking care of your domain.</p>
+
+<p>Once you fill in your domain name, your existing DNS records will be analysed
+and transferred over to Cloudflare. I’d recommend paying careful attention
+during this step as Cloudflare’s auto-detection does fairly good, yet not
+perfect job.</p>
+
+<p>In my case, Cloudflare was able to find apex domain’s <code class="highlighter-rouge">A</code> record, apex domain’s
+and <code class="highlighter-rouge">mail</code> &amp; <code class="highlighter-rouge">www</code> subdomain’s <code class="highlighter-rouge">CNAME</code> records, all <code class="highlighter-rouge">MX</code> records and apex
+domain’s <code class="highlighter-rouge">SRV</code> and <code class="highlighter-rouge">TXT</code> records. Everything else you’ll have to configure
+manually; I recommend going through your old DNS records, which you can likely
+find in your domain registrar’s administration interface, and transferring them
+one by one over. <a href="https://vivaldi.com">Vivaldi</a>’s split screen view is
+absolutely amazing for this.</p>
+
+<p>After you’re done, Cloudflare will assign you two name-servers (these are
+different for each domain so I can’t just write the addresses of my name-servers
+here for you) and with the knowledge of these addresses, you’ll have to go back
+to your domain’s registrar’s administration interface and configure Cloudflare’s
+name-servers as your domain’s primary and secondary name-servers. As far as I
+can tell, Cloudflare (or for that matter, anyone else) doesn’t really care about
+which one of them is primary and which one is secondary.</p>
+
+<p>Once Cloudflare is successfully set up for your domain, you can head to their
+administration panel, into the <em>Crypto</em> section, and verify that the <em>SSL</em>
+option is set to <em>Full</em>. You may also want to scroll down and turn <em>Always use
+HTTPS</em> to <em>On</em>, <em>Automatic HTTPS Rewrites</em> to <em>On</em> and if you care about your
+site’s <a href="https://www.ssllabs.com/ssltest/">SSL Labs rating</a><sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>, you may want to
+go through the configuration of the <em>HTTP Strict Transport Security (HSTS)</em>
+option; however, be <strong>incredibly careful</strong> with the last one, read through all
+the warnings Cloudflare shows you and verify that Cloudflare already issued a
+SSL certificate for your domain (issuing may take a few minutes, and after all,
+you <em>just</em> signed up for the service – so if the certificate is not ready yet,
+just be patient and return in a while <img class="emoji" title=":crocodile:" alt=":crocodile:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f40a.png" height="20" width="20">) and that HTTPS is working
+correctly for your domain. I recommend first verifying that everything truly
+works, waiting a few days during which you test just HTTPS alone and if
+everything seems fine and dandy, go for the HSTS option. In order to score an
+A+ grade on the test, you need to set HSTS’s <em>Max-Age</em> attribute to at least
+6 months.</p>
+
+<p>And that should do the trick! I truly recommend going through the entire
+administration panel at this point – there is a ton of hidden and useful
+features. In fact, let me briefly mention my favourite ones.</p>
+
+<h2 id="additional-perks">Additional perks</h2>
+
+<ul>
+  <li>The entire <em>Analytics</em> section is sweet, and complements Google Analytics
+  nicely;</li>
+  <li>
+<em>DNS</em> ↝ <em>DNSSEC</em> allows you to further secure your domain, but support
+  on your domain’s registrar’s side will also be needed; which is why I
+  transferred my domain recently away from IGNUM to
+  <a href="https://www.namecheap.com">Namecheap</a>, which so far seems to be an amazing
+  (and cheap!) registrar that I can wholeheartedly recommend;</li>
+  <li>
+<em>DNS</em> ↝ <em>CNAME Flattening</em> is an always-on feature that allows you to
+  <em>not</em> specify an <code class="highlighter-rouge">A</code> record for your apex domain and instead use a <code class="highlighter-rouge">CNAME</code>
+  record<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>;</li>
+  <li>
+<em>Speed</em> ↝ <em>Auto Minify</em> reduces the size of your HTML, CSS and
+  JavaScript files by getting rid of whitespace;</li>
+  <li>
+<em>Speed</em> ↝ <em>Brotli</em> further compresses your site’s traffic;</li>
+  <li>
+<em>Speed</em> ↝ <em>Rocket Loader™</em> takes all your JavaScript files, bundles them
+  into a single file and still somehow doesn’t break your site in the process;</li>
+  <li>and finally, <em>Scrape Shield</em> ↝ <em>Email Address Obfuscation</em> encodes all
+  e-mail addresses found on your site and injects a JavaScript to decode them
+  back before displaying them to your visitors.</li>
+</ul>
+
+<p>Pretty amazing for a free service, isn’t it? There’s just one last thing to
+mention…</p>
+
+<h2 id="on-the-topic-of-cache">On the topic of cache</h2>
+
+<p>By employing Cloudflare to cache your site, you may see some delay before newly
+published articles or pages appear to your visitors. Or better said, you would
+be able to see some delay if I didn’t have a handy solution ready.</p>
+
+<p>In my
+<a href="/post/how-to-host-your-site-for-free-using-github-pages">previous article on this topic</a>,
+I mentioned something about cache purging – and cache purging is exactly what
+you need to do to indicate to Cloudflare that new content is available on your
+site. You can do so by calling
+<a href="https://api.cloudflare.com/#zone-purge-all-files">appropriate API method</a>,
+preferably as a part of your site’s build process, exactly as I mentioned in the
+previous article. You can find your domain’s zone ID in the <em>Overview</em> section
+while your API key hides in <em>My Profile</em> which you can access by clicking on
+your e-mail address in the top right in Cloudflare’s administration panel.</p>
+
+<p>Congratulations on having secure and, unless you went absolutely nuts with
+Cloudflare’s applications, fast website! <img class="emoji" title=":stuck_out_tongue_winking_eye:" alt=":stuck_out_tongue_winking_eye:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f61c.png" height="20" width="20"></p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>If you want to improve your SSL Labs rating even further, you should add
+<code class="highlighter-rouge">CAA</code> DNS records for <code class="highlighter-rouge">comodoca.com</code>, <code class="highlighter-rouge">digicert.com</code> and <code class="highlighter-rouge">globalsign.com</code>
+issuers by following <a href="https://support.cloudflare.com/hc/en-us/articles/115000310792-Configuring-CAA-Records-">this short tutorial</a>. <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>For example, I have a <code class="highlighter-rouge">CNAME</code> record on this apex domain that points to
+<code class="highlighter-rouge">cellane.github.io</code>, and it works just fine and apparently resolves even
+faster than an <code class="highlighter-rouge">A</code> record – how is that possible? Personally, I suspect
+black magic! <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=How+to+get+a+free+SSL+certificate+for+your+GitHub+Pages+site%20-%20https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site%20by%20@miloso" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"></path></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"></path></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"></path></svg>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              var disqus_config = function () {
+                this.page.url = 'https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site';
+                this.page.identifier = '/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site';
+              };
+
+              (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://czech-in-japan.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+              </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+          
+        </article>
+        <footer class="footer ">
+  <p>
+    Blog about a programmer who followed his love halfway across the world,
+    from Czech Republic all the way to Japan. Expect stories about a
+    possible clash of cultures, about programming and IT in general and maybe
+    micro-stories containing a random thought or two.
+  </p>
+  <p>
+    PGP: D422 FA2F 0037 0ABD D1CC 22E5 4684 6F75 9ECA 2702
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48762418-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-48762418-2');
+  </script>
+
+
+<script src="/assets/vendor-600e49ea335fb895c0d326da11300ea5b2bcc0a442b7932323e7515bfd9e907e.js" integrity="sha256-YA5J6jNfuJXA0ybaETAOpbK8wKRCt5MjI+dRW/2ekH4=" crossorigin="anonymous" type="text/javascript"></script>
+
+
+
+
+
+<script src="/assets/application-4a681f5b35602db0857cb9b635a41856907ed1474fe9ab74d512b2ebf18aaaf0.js" integrity="sha256-SmgfWzVgLbCFfLm2NaQYVpB+0UdP6at01RKy6/GKqvA=" crossorigin="anonymous" type="text/javascript"></script>
+
+</body>
+</html>

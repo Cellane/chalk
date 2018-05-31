@@ -1,20 +1,90 @@
----
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="https://www.w3.org/2005/Atom" xmlns:dc="https://purl.org/dc/elements/1.1/">
   <channel>
-    <title>{{ site.name | xml_escape }}</title>
-    <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
-    <link>{{ site.url }}</link>
-    <atom:link href="{{ page.path | absolute_url }}" rel="self" type="application/rss+xml" />
-    {% for post in site.posts limit:10 %}
+    <title>Czech/in/Japan</title>
+    <description></description>
+    <link>https://www.milanvit.net</link>
+    <atom:link href="https://www.milanvit.net/feed.xml" rel="self" type="application/rss+xml" />
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.description | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | absolute_url }}</link>
-        <guid isPermaLink="true">{{ post.url | absolute_url }}</guid>
+        <title>How to master a multi-stage continuous delivery of Vapor apps to a Kubernetes cluster</title>
+        <description>Wow, that title sure is a mouthful. I think is certainly breaks some sort of weird record for this site!</description>
+        <pubDate>Wed, 30 May 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster</guid>
       </item>
-    {% endfor %}
+    
+      <item>
+        <title>Gallery: 私のアパート (my apartment)</title>
+        <description>I’ve been waiting for weeks to finally finish furnishing my small Japanese apartment, and with (hopefully) last piece of furniture arriving this Friday and everything looking exactly as I wish it to look, I can finally share the fruits of my labour with you. This is how I live now!</description>
+        <pubDate>Sun, 13 May 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/gallery-my-apartment</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/gallery-my-apartment</guid>
+      </item>
+    
+      <item>
+        <title>How to get a job in Japan</title>
+        <description>I swear I have been putting of writing this article for a really long time. In the following paragraphs, I will try to describe my road to Japan (which necessarily involves getting a job first) and hopefully provide a few advices that could help anyone wishing to pursue the same path.</description>
+        <pubDate>Sat, 12 May 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/how-to-get-a-job-in-japan</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-get-a-job-in-japan</guid>
+      </item>
+    
+      <item>
+        <title>Gallery: Megurofudouson (目黒不動尊) and Rinshi no Mori Park (林試の森公園)</title>
+        <description>With Golden Week, arguably the biggest public holiday in Japan, coming slowly to its end, here’s a small gallery from a trip me and my wife went on yesterday. 目黒不動尊 is the closest buddhist temple to my house and I have to say, it immediately became one of my favourite temples of all times – not necessarily due to its proximity to my house but thanks to its openness and how much you can explore (even though you can’t take photos of everything, unfortunately). Hope you’ll enjoy!</description>
+        <pubDate>Sun, 06 May 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/gallery-megurofudouson-and-rinshi-no-mori-park</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/gallery-megurofudouson-and-rinshi-no-mori-park</guid>
+      </item>
+    
+      <item>
+        <title>How to get an apartment in Japan</title>
+        <description>I finally made it to Japan but besides having a job (I wish to dedicate a separate article to the process obtaining that at a later date), I had the foolish wish of also having the place to live, a place I could call my “home”. Here are the steps I had to undergo and the help I had to receive, as this task would be impossible to complete on my own.</description>
+        <pubDate>Sat, 28 Apr 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/how-to-get-an-apartment-in-japan</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-get-an-apartment-in-japan</guid>
+      </item>
+    
+      <item>
+        <title>How to hot reload a Vapor project</title>
+        <description>One question that gets frequently asked in Vapor’s Slack channel is whether is it possible to not have to recompile the entire project upon the slightest change in the source code. Until recently, I would have told you that this is just the unavoidable reality of compiled languages, but today I have a solution – sort of.</description>
+        <pubDate>Fri, 13 Apr 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/how-to-hot-reload-a-vapor-project</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-hot-reload-a-vapor-project</guid>
+      </item>
+    
+      <item>
+        <title>Direction: Japan!</title>
+        <description>There are so many topics that I actually wanted to write about in these past few days (and I will get to them eventually, surely) but none is more important for me than the events happening recently. Two weeks ago, my Certificate of Eligibility was issued. Last week, it was delivered to me, I applied for Japanese work visas and still last week, I also got the visas issued.</description>
+        <pubDate>Tue, 03 Apr 2018 00:00:00 +0200</pubDate>
+        <link>https://www.milanvit.net/post/direction-japan</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/direction-japan</guid>
+      </item>
+    
+      <item>
+        <title>How to de-Googlify your life</title>
+        <description>Google, back in the day, used to be one of those companies that were loved by everyone and could essentially do no wrong. However, due to Google’s actions in the past few years, it feels like that illusion is slowly disappearing and the true nature of the company starts slowly showing – and honestly, it's not a particularly nice look.</description>
+        <pubDate>Sat, 24 Mar 2018 00:00:00 +0100</pubDate>
+        <link>https://www.milanvit.net/post/how-to-de-googlify-your-life</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-de-googlify-your-life</guid>
+      </item>
+    
+      <item>
+        <title>How to get a free SSL certificate for your GitHub Pages site</title>
+        <description>In the first article on this site, I described a way to host your site or blog on GitHub Pages while having it accessible via your own domain. I left the article with one thing left unsolved: the site was not accessible via HTTPS, and something like that would not fly in &lt;em&gt;current year&lt;/em&gt;. Let us see how one can fix that – for free.</description>
+        <pubDate>Wed, 14 Mar 2018 00:00:00 +0100</pubDate>
+        <link>https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-get-a-free-ssl-certificate-for-your-github-pages-site</guid>
+      </item>
+    
+      <item>
+        <title>How to marry a Japanese girl</title>
+        <description>A brief description of the legal hell you throw yourself into the moment you and your loved one decide to have an international marriage.</description>
+        <pubDate>Thu, 08 Mar 2018 00:00:00 +0100</pubDate>
+        <link>https://www.milanvit.net/post/how-to-marry-a-japanese-girl</link>
+        <guid isPermaLink="true">https://www.milanvit.net/post/how-to-marry-a-japanese-girl</guid>
+      </item>
+    
   </channel>
 </rss>

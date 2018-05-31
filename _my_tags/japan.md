@@ -1,4 +1,0 @@
----
-slug: japan
-name: Japan
----

@@ -1,4 +1,0 @@
----
-slug: vapor
-name: Vapor
----

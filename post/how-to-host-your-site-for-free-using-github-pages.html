@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Czech/in/Japan | How to host your site for free using GitHub Pages</title>
+  <meta name="description" content="And not just host, but also set your site up to work on a custom domain and automate deployment using Travis CI. Automatic spell and grammar check included!">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="How to host your site for free using GitHub Pages">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.milanvit.net/post/how-to-host-your-site-for-free-using-github-pages">
+  <meta property="og:description" content="And not just host, but also set your site up to work on a custom domain and automate deployment using Travis CI. Automatic spell and grammar check included!">
+  <meta property="og:site_name" content="Czech/in/Japan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://www.milanvit.net/post/how-to-host-your-site-for-free-using-github-pages">
+  <meta name="twitter:title" content="How to host your site for free using GitHub Pages">
+  <meta name="twitter:description" content="And not just host, but also set your site up to work on a custom domain and automate deployment using Travis CI. Automatic spell and grammar check included!">
+
+  
+    <meta property="og:image" content="https://www.milanvit.net/assets/og-image-bca1a468cbe16cb1cd7ec48b1f3a230055493f9f1af68053377df52daabb353a.jpg">
+    <meta name="twitter:image" content="https://www.milanvit.net/assets/og-image-bca1a468cbe16cb1cd7ec48b1f3a230055493f9f1af68053377df52daabb353a.jpg">
+  
+
+  <link href="https://www.milanvit.net/feed.xml" type="application/rss+xml" rel="alternate" title="Czech/in/Japan Last 10 blog posts" />
+
+  
+    <link rel="stylesheet" type="text/css" integrity="sha256-hdqzaNBWtdZkGPv9flWonzT2RO6BHIIYyBAXIEQmEhs=" crossorigin="anonymous" href="/assets/fonts-85dab368d056b5d66418fbfd7e55a89f34f644ee811c8218c81017204426121b.css">
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-dark-fac4856bcfeff3a961d7e0e8aed66d092c0310d947b9aa4df542239cc0d38972.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon-dark-7b846b796b765f9e202256472fcdfd8c46fa745b74b1f937f105ff2a89e01ae5.png">
+    <link rel="stylesheet" type="text/css" integrity="sha256-Kp4Uw6GpoPhKmWJNsTsGogCMKnKpHo8f19j+uYQ5mw8=" crossorigin="anonymous" href="/assets/dark-2a9e14c3a1a9a0f84a99624db13b06a2008c2a72a91e8f1fd7d8feb984399b0f.css">
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav ">
+  <a href="/" class="header-logo" title="Czech/in/Japan">Czech/in/Japan</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://twitter.com/miloso" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter" xlink:href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/miloso" rel="noreferrer noopener" target="_blank" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook">
+  <use href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook" xlink:href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/Cellane" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://keybase.io/Cellane" rel="noreferrer noopener" target="_blank" title="Keybase">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-keybase">
+  <use href="/assets/keybase-4004cb8fb3e3f1f748f19fbea8a591d0bf5a00865e53977d673f2b09fcabf6e4.svg#icon-keybase" xlink:href="/assets/keybase-4004cb8fb3e3f1f748f19fbea8a591d0bf5a00865e53977d673f2b09fcabf6e4.svg#icon-keybase"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/vitmilan" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:milanvit@milanvit.net" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss" xlink:href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article ">
+          <header class="article-header">
+            <h1>How to host your site for free using GitHub Pages</h1>
+            <p>And not just host, but also set your site up to work on a custom domain and automate deployment using Travis CI. Automatic spell and grammar check included!</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                March 6, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  9 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/web">web</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>There’s at least a hundred different ways to create your own blog/personal site,
+whether it’s using shared hosting with any of the myriad of free content
+management systems, using an existing platform such as Medium or Tumblr
+(although who in their right mind would do that? <img class="emoji" title=":kissing_smiling_eyes:" alt=":kissing_smiling_eyes:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f619.png" height="20" width="20">
+<img class="emoji" title=":musical_note:" alt=":musical_note:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f3b5.png" height="20" width="20">), but why not try something more extravagant?</p>
+
+<p>For rebooting my site, I chose a solution based on GitHub Pages. It’s definitely
+not a solution for everyone as it’s quite geeky at times, but maybe someone will
+find the description of my journey interesting or even decides to follow in my
+footsteps.</p>
+
+<h2 id="installing-the-necessary-software">Installing the necessary software</h2>
+
+<p>Obviously, in order to work with a Jekyll project, I had to install the Jekyll
+binary itself, and a few more dependencies that were required by the particular
+template I used.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>brew <span class="nb">install </span>node rbenv
+<span class="nv">$ </span>rbenv <span class="nb">install </span>2.4.3
+<span class="nv">$ </span>rbenv global 2.4.3
+<span class="nv">$ </span>gem <span class="nb">install </span>bundler jekyll travis</code></pre></figure>
+
+<p>I like to have my Ruby versions maintained by <code class="highlighter-rouge">rbenv</code> so I can theoretically
+switch to another Ruby version in different directory, if needed.</p>
+
+<h2 id="what-is-github-pages">What is GitHub Pages?</h2>
+
+<p>Let’s quickly go over what GitHub Pages actually is. In layman’s terms, it
+allows you to transform your Markdown<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup> documents into a full-fledged HTML
+pages that can be presented to the end user. The process of transformation is
+performed by a program called <a href="https://jekyllrb.com/">Jekyll</a> and every step of
+it can be customized. This post, however, does not intend to focus on Jekyll
+directly, so if you’re interested in that topic, I recommend checking out their
+<a href="https://jekyllrb.com/docs/home/">documentation</a>, it’s truly comprehensive.</p>
+
+<p>GitHub Pages automatically converts your Jekyll project into a HTML site, with
+one caveat: it supports only a limited number of Jekyll plug-ins and templates;
+unfortunately for me, the template I chose, a beautifully simple template
+called <a href="https://github.com/nielsenramon/chalk">Chalk</a>, was not one of the
+supported ones. That means I had to adjust the typical Jekyll workflow a little
+bit:</p>
+
+<ul>
+  <li>I had to fork the template’s repository and build my work on top of that
+  instead of creating an empty Jekyll project from the command line;</li>
+  <li>I had to run <code class="highlighter-rouge">npm run setup</code> to configure my environment;</li>
+  <li>I had to start using <code class="highlighter-rouge">npm run local</code> instead of <code class="highlighter-rouge">bundle exec jekyll serve</code> to
+  preview the site locally<sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>;</li>
+  <li>and perhaps most importantly, I could not have GitHub Pages compile the site
+  for me – I’ll get back to this point in a bit.</li>
+</ul>
+
+<h2 id="configuring-the-repository">Configuring the repository</h2>
+
+<p>After forking the template’s repository, I decided how my Git workflow would
+look like: I’d protect the <code class="highlighter-rouge">master</code> branch from pushing any commits into it
+directly<sup id="fnref:3"><a href="#fn:3" class="footnote">3</a></sup> and force myself to instead have a pull request for any group of
+changes I intended to do on the site, including writing a new article. Why?
+Because each commit that’s a part of a pull request would be processed by
+Travis, whom I’d instruct to check the spelling and grammar for any modified
+Markdown files and check all hyperlinks in the resulting HTML pages for any dead
+links – and put the results of these checks as a comment in the pull request.
+Only after these checks would pass, a merge back to <code class="highlighter-rouge">master</code> would be allowed.</p>
+
+<p>And speaking of merging to <code class="highlighter-rouge">master</code>, that action would also trigger Travis one
+more time. This time, on top of all the checks mentioned before, Travis would
+yet again compile the site from Markdown to HTML, remove any unnecessary files,
+checkout the <code class="highlighter-rouge">gh-pages</code> branch and force-push the finished site into that
+branch, as GitHub Pages serves the content from the <code class="highlighter-rouge">gh-pages</code> branch as the
+website<sup id="fnref:4"><a href="#fn:4" class="footnote">4</a></sup>.</p>
+
+<h2 id="configuring-travis">Configuring Travis</h2>
+
+<p>How would such Travis configuration look like? For me, this <code class="highlighter-rouge">.travis.yml</code>
+configuration file provided sufficient:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">language</span><span class="pi">:</span> <span class="s">ruby</span>
+<span class="na">branches</span><span class="pi">:</span>
+  <span class="na">only</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">master</span>
+<span class="na">cache</span><span class="pi">:</span>
+  <span class="na">bundler</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">pip</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">yarn</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="na">directories</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">_assets/yarn</span>
+<span class="na">rvm</span><span class="pi">:</span> <span class="s">2.4.3</span>
+<span class="na">node_js</span><span class="pi">:</span> <span class="s2">"</span><span class="s">8"</span>
+<span class="na">python</span><span class="pi">:</span> <span class="s">3.4</span>
+<span class="na">install</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">./bin/setup</span>
+<span class="na">before_script</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">sudo apt-get -qq update</span>
+  <span class="pi">-</span> <span class="s">sudo apt-get install -y aspell aspell-en</span>
+  <span class="pi">-</span> <span class="s">pip install --user proselint</span>
+  <span class="pi">-</span> <span class="s">npm install -g Cellane/node-markdown-spellcheck</span>
+<span class="na">script</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">bundle exec jekyll build --trace</span>
+  <span class="pi">-</span> <span class="s">bundle exec htmlproofer ./_site --only-4xx --allow-hash-href --assume-extension --check-opengraph --url-ignore "feed.xml"</span>
+  <span class="pi">-</span> <span class="s">bundle exec danger</span>
+<span class="na">after_success</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">test $TRAVIS_PULL_REQUEST == "false" &amp;&amp; test $TRAVIS_BRANCH == "master" &amp;&amp; "./bin/automated"</span>
+<span class="na">env</span><span class="pi">:</span>
+  <span class="na">global</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">NOKOGIRI_USE_SYSTEM_LIBRARIES</span><span class="pi">:</span> <span class="no">true</span>
+  <span class="pi">-</span> <span class="s">GITHUB_USERNAME="Milan Vit"</span>
+  <span class="pi">-</span> <span class="na">GITHUB_EMAIL</span><span class="pi">:</span> <span class="s">milanvit@milanvit.net</span>
+  <span class="pi">-</span> <span class="na">CLOUDFLARE_ZONE_ID</span><span class="pi">:</span> <span class="s">9f7f8ee361f355357f2463e64a170d0f</span>
+  <span class="pi">-</span> <span class="na">CLOUDFLARE_AUTH_EMAIL</span><span class="pi">:</span> <span class="s">milanvit@milanvit.net</span>
+  <span class="pi">-</span> <span class="na">secure</span><span class="pi">:</span> <span class="s">nrpfexcWiW1VhDpJlFCwXu1BjiLC/YfNdGkFBqW50n88Zz3Kt0ydaHYqy1TiJSkC0uxo7zVV4CHRaVjQhuEjpcPAft+X5JCgKaTBq2aG0Xc1BOYk3b/mJwVtv0NM5mkp1k+/kAINjcAO2s+X/pyaaakxaArEyZQmz+KuQuih/wJCJlP0EZLpXSaf/9CfOgidwJOd56m41/KuJTZ6mSazSnjI9uno02HnYxhwFjO1sSTkMxawRLrOHtJIEZEqoPkzzxlIx+19kcimkdthMAIrMse4fBA2gC7f9+PnTJvWf7NlyOfCc/mID6HI2wTL/StAkbaNp6WywK8w6++c7l5mz+V8qkLy5v29MGvPQ5gdilWyyrTsqVD1tUTjK109ShNrjtgWNvbJe5WPhYG8SCphlxBDOr7uHYwtcjaUaiLZSvTH1fAK77RMPd3vodJMB0hNIyIJ0uTtKU5UXYZyNaq1xzfREWhEDEA2qpThNwJoMrnwHo/ZIc7TJsnqPcgesuBwBUlaJ9jGcQBQrtkmGPPUd1ACVLtMg48uHGY3OuxfDnbm4OyxsJFx3KajYUDQ6gv+YoQnWBdovsFKJFSOMICrhGMuGIz7MsgBFtPNzLVUVJ+RObzMn7MZthJMI2gXEe+QcjSSd0oNdzTFF1fTvYFU+I+C+zR4ptd48Ln+zNTCgx0=</span>
+  <span class="pi">-</span> <span class="na">secure</span><span class="pi">:</span> <span class="s">akdwPqMO4CGFjd6+meiNxasDVh/6fvsEFQu783leTtsb50y1njqaorTDLcLRHfjzCLRYfB5vlA2ptKVUGmkiI5LU0AejEoVI2Jy3DEkEr9Zc7X/+L25g1dtcVZEvq0lg0xMWQnbn6c5qF9/7yKcyBkiQjLONU9YR4qePRFDBuXbCRRiqt6lDQhJgutqE+lkRMUQg4/7h+eXwEchAI6mM/Cdw+twuIQCAP4yB8xOhOcd3n8hCh8s11Xc6gYOFwFfaDOPFKzig+Iq33Q6RdW9p5AxukDxjyN/p0Ju7G5gY8Vke5qxfp2iIuo9xYH1PRD+ZY6I5dEC9cpOwYPAfURxJihWGt2z5V//MRELWD1k34bqJNdB+cGZiBAov4alfi2ckJb0mUPNbipqoqob1e+A2qpucHoNE+szIf+Kj60IwEGehIj3NR22C0F2MCKOAr7FAGT6dUhWBpq9GETfbr46tJAKF7e3utXub2Z0QEPr/OfrGDuvj13lD4QAMqvURfVWfIFRqt0FSb0kdbqWLKsWf0WOjRaGfnvObLFSJVxB8SLxFki0y3JgphuWkliwFceYAAGU7ITb0bcCuEc/pKzBvPC6wJ7JIw02yHaWHd1/9rrhH3qv4fhNP1ZGZ+DNGzVQcZD4J3IAH9DiBHNVkvU5z0OawVeU0UMerwG3uZZQqo7g=</span>
+<span class="na">notifications</span><span class="pi">:</span>
+  <span class="na">email</span><span class="pi">:</span> <span class="no">false</span></code></pre></figure>
+
+<p>I believe most of the file is pretty self-explanatory (poke me in the comments
+below if you disagree), I’ll just briefly touch on parts of the environment
+section. <code class="highlighter-rouge">GITHUB_USERNAME</code> and <code class="highlighter-rouge">GITHUB_EMAIL</code> variables are used for pushing
+compiled website by automated script mentioned just below these.
+<code class="highlighter-rouge">CLOUDFLARE_ZONE_ID</code> and <code class="highlighter-rouge">CLOUDFLARE_AUTH_EMAIL</code> are used to identify my zone
+(domain) and me as an user for when I want to purge Cloudflare’s cache at the
+end of the build.</p>
+
+<p>The two lines towards the end of the file that start with <code class="highlighter-rouge">secret</code> contain
+encrypted GitHub token (<code class="highlighter-rouge">GITHUB_TOKEN</code>) for the force-push into the <code class="highlighter-rouge">gh-pages</code>
+branch and a Cloudflare token (<code class="highlighter-rouge">CLOUDFLARE_AUTH_KEY</code>). You can obtain the GitHub
+token <a href="https://github.com/settings/tokens">here</a> (select the entire <code class="highlighter-rouge">repo</code>
+category as your scope) and you can add it into your configuration file by
+running following command:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="nv">$ </span>travis encrypt <span class="nv">VARIABLE_NAME</span><span class="o">=</span>VARIABLE_VALUE <span class="nt">--add</span></code></pre></figure>
+
+<p>The automated deployment script that’s run in the <code class="highlighter-rouge">after_success</code> block
+resides in <code class="highlighter-rouge">bin/automated</code> and looks something like this:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c">#!/bin/bash</span>
+
+<span class="c"># Automated deploy script with Travis CI</span>
+
+<span class="c"># Exit if any subcommand fails</span>
+<span class="nb">set</span> <span class="nt">-e</span>
+
+<span class="c"># Variables</span>
+<span class="nv">ORIGIN_URL</span><span class="o">=</span><span class="sb">`</span>git config <span class="nt">--get</span> remote.origin.url<span class="sb">`</span>
+<span class="nv">ORIGIN_CREDENTIALS</span><span class="o">=</span><span class="k">${</span><span class="nv">ORIGIN_URL</span><span class="p">/\/\/github.com/\/\/</span><span class="nv">$GITHUB_TOKEN</span><span class="p">@github.com</span><span class="k">}</span>
+<span class="nv">COMMIT_MESSAGE</span><span class="o">=</span><span class="k">$(</span>git log <span class="nt">-1</span> <span class="nt">--pretty</span><span class="o">=</span>%B<span class="k">)</span>
+
+<span class="nb">echo</span> <span class="s2">"Started deploying…"</span>
+
+<span class="c"># Checkout gh-pages branch</span>
+<span class="k">if</span> <span class="o">[</span> <span class="sb">`</span>git branch | <span class="nb">grep </span>gh-pages<span class="sb">`</span> <span class="o">]</span>
+<span class="k">then
+  </span>git branch <span class="nt">-D</span> gh-pages
+<span class="k">fi
+</span>git checkout <span class="nt">-b</span> gh-pages
+
+<span class="c"># Build site</span>
+yarn <span class="nb">install</span> <span class="nt">--modules-folder</span> ./_assets/yarn
+bundle <span class="nb">exec </span>jekyll build
+
+<span class="c"># Delete and move files</span>
+find <span class="nb">.</span> <span class="nt">-maxdepth</span> 1 <span class="o">!</span> <span class="nt">-name</span> <span class="s1">'_site'</span> <span class="o">!</span> <span class="nt">-name</span> <span class="s1">'.git'</span> <span class="o">!</span> <span class="nt">-name</span> <span class="s1">'.gitignore'</span> <span class="nt">-exec</span> <span class="nb">rm</span> <span class="nt">-rf</span> <span class="o">{}</span> <span class="se">\;</span>
+<span class="nb">mv </span>_site/<span class="k">*</span> <span class="nb">.</span>
+<span class="nb">rm</span> <span class="nt">-R</span> _site/
+
+<span class="c"># Push to gh-pages</span>
+git config user.name <span class="s2">"</span><span class="nv">$GITHUB_USERNAME</span><span class="s2">"</span>
+git config user.email <span class="s2">"</span><span class="nv">$GITHUB_EMAIL</span><span class="s2">"</span>
+
+git add <span class="nt">-fA</span>
+git commit <span class="nt">--allow-empty</span> <span class="nt">-m</span> <span class="s2">"</span><span class="nv">$COMMIT_MESSAGE</span><span class="s2"> [ci skip]"</span>
+git push <span class="nt">-f</span> <span class="nt">-q</span> <span class="nv">$ORIGIN_CREDENTIALS</span> gh-pages
+
+<span class="c"># Move back to previous branch</span>
+git checkout -
+yarn <span class="nb">install</span> <span class="nt">--modules-folder</span> ./_assets/yarn
+
+<span class="c"># Purge Cloudflare cache</span>
+<span class="nb">echo</span> <span class="s2">"Purging Cloudflare cache…"</span>
+curl <span class="nt">-X</span> <span class="s2">"DELETE"</span> <span class="s2">"https://api.cloudflare.com/client/v4/zones/</span><span class="nv">$CLOUDFLARE_ZONE_ID</span><span class="s2">/purge_cache"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Auth-Email: </span><span class="nv">$CLOUDFLARE_AUTH_EMAIL</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-H</span> <span class="s2">"X-Auth-Key: </span><span class="nv">$CLOUDFLARE_AUTH_KEY</span><span class="s2">"</span> <span class="se">\</span>
+     <span class="nt">-d</span> <span class="s1">$'{
+  "purge_everything": true
+}'</span>
+<span class="nb">echo
+
+echo</span> <span class="s2">"Deployed successfully!"</span>
+
+<span class="nb">exit </span>0</code></pre></figure>
+
+<p>If you don’t use Cloudflare for your domain, you can obviously skip all the bits
+related to Cloudflare by deleting relevant parts of <code class="highlighter-rouge">.travis.yml</code> and
+<code class="highlighter-rouge">bin/automated</code>; however, in my next article, I’ll describe how to configure
+Cloudflare for custom domain to get both money-free and hassle-free SSL
+certificate, so maybe hold on until then.</p>
+
+<p>One last thing I needed to set up in Travis administration panel was a token
+for Danger to use when it wishes to spit out the spelling and grammar check
+results into a comment on a pull request – that one is obtained on the
+<a href="https://github.com/settings/tokens">same page</a> as the token for force pushing,
+except this time the scope should really be only <code class="highlighter-rouge">public_repo</code>, and the token
+should be stored under the name <code class="highlighter-rouge">DANGER_GITHUB_API_TOKEN</code>. You can’t actually
+add it to your <code class="highlighter-rouge">.travis.yml</code> file as GitHub would detect it during your next
+push, send you a scary e-mail and deactivate the token. Sneaky bastard!</p>
+
+<p>Danger itself is configured in <code class="highlighter-rouge">Dangerfile</code> like this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">markdown_files</span> <span class="o">=</span> <span class="p">(</span><span class="n">git</span><span class="p">.</span><span class="nf">modified_files</span> <span class="o">+</span> <span class="n">git</span><span class="p">.</span><span class="nf">added_files</span><span class="p">).</span><span class="nf">select</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+  <span class="n">line</span><span class="p">.</span><span class="nf">end_with?</span><span class="p">(</span><span class="s2">".md"</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">ignored_words</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s1">'.spelling'</span><span class="p">).</span><span class="nf">each_line</span> <span class="k">do</span> <span class="o">|</span><span class="n">line</span><span class="o">|</span>
+  <span class="n">line</span><span class="p">.</span><span class="nf">chomp!</span>
+  <span class="k">next</span> <span class="k">if</span> <span class="n">line</span><span class="p">.</span><span class="nf">empty?</span> <span class="o">||</span> <span class="n">line</span><span class="p">.</span><span class="nf">start_with?</span><span class="p">(</span><span class="s1">'#'</span><span class="p">)</span>
+  <span class="n">ignored_words</span><span class="p">.</span><span class="nf">push</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">prose</span><span class="p">.</span><span class="nf">ignored_words</span> <span class="o">=</span> <span class="n">ignored_words</span>
+<span class="n">prose</span><span class="p">.</span><span class="nf">ignore_numbers</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">prose</span><span class="p">.</span><span class="nf">ignore_acronyms</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">prose</span><span class="p">.</span><span class="nf">lint_files</span> <span class="n">markdown_files</span>
+<span class="n">prose</span><span class="p">.</span><span class="nf">check_spelling</span> <span class="n">markdown_files</span></code></pre></figure>
+
+<h2 id="configuring-the-domain">Configuring the domain</h2>
+
+<p>Fortunately, this part was fairly easy. I wanted my site to be available at both
+<em>milanvit.net</em> and <em>www.milanvit.net</em>, so I created two <code class="highlighter-rouge">A</code> records, one
+pointing at <code class="highlighter-rouge">192.30.252.153</code>, the other one pointing at <code class="highlighter-rouge">192.30.252.154</code> –
+that’s the first case taken care of.</p>
+
+<p>After that, I created a <code class="highlighter-rouge">CNAME</code> entry <code class="highlighter-rouge">www</code> pointing at <code class="highlighter-rouge">cellane.github.io</code>,
+which takes care of the <code class="highlighter-rouge">www</code> route.</p>
+
+<p>Once I was done with that, I entered <code class="highlighter-rouge">www.milanvit.net</code> into the <code class="highlighter-rouge">CNAME</code> file at
+the root of the repository, committed that and after a push, GitHub was able to
+tell which site to serve and how.</p>
+
+<h2 id="recap-the-entire-workflow">Recap: the entire workflow</h2>
+
+<p>After painful waiting for DNS records to refresh all the way down to my
+computer, I had the site available on my domain. Success!</p>
+
+<p>Whenever I want to make a change (such as writing this exact article), I create
+a new Git branch, start making changes, start committing and pushing them and at
+some point, open a
+<a href="https://github.com/Cellane/milanvit.net/pulls?utf8=%E2%9C%93&amp;q=">pull request</a>. That
+triggers Travis to create a build out of that pull request, checking my
+spelling, grammar and verifying that all links work, all images have a textual
+description and all generated HTML is valid. The results of the build get
+presented via Danger back to the pull request and from there, I can at any
+point decide that I want to merge the pull request into <code class="highlighter-rouge">master</code>, thus
+triggering another build that in the end results in the compiled site being
+pushed into the <code class="highlighter-rouge">gh-pages</code> branch from which GitHub Pages serves it to visitors
+like you.</p>
+
+<p>You might ask, why would one pick such a complicated route to creating a
+website?</p>
+
+<p>I think a better question is… why not? Putting all these pieces of puzzle
+together was really fun, and isn’t that the most important thing when it comes
+to anything new in IT? <img class="emoji" title=":smirk:" alt=":smirk:" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60f.png" height="20" width="20"></p>
+
+<p>Should you have any questions regarding this setup, feel free to ask in the
+comments or get inspired by looking at the
+<a href="https://github.com/Cellane/milanvit.net">source code of this website</a>.</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Jekyll is actually not limited to having Markdown as an input for the
+transformation, but can also process Textile and Liquid documents or even
+raw HTML and CSS. <a href="#fnref:1" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:2">
+      <p>Technically, I did not <em>have to</em> do this. It’s just a convenience method
+that Chalk provides. <a href="#fnref:2" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:3">
+      <p>I accomplished this by going to the repository’s settings ↝ Branches
+↝ Protected branches ↝<code class="highlighter-rouge">master</code> and checking the <em>Protect this
+branch</em>, <em>Require status checks to pass before merging</em>, <em>Require branches
+to be up to date before merging</em>, <em>continuous-integration/travis-ci</em> and
+<em>Include administrators</em> options. The second-to-last option will, of course,
+only appear after Travis is enabled for your repository. <a href="#fnref:3" class="reversefootnote">↩</a></p>
+    </li>
+    <li id="fn:4">
+      <p>Theoretically, GitHub Pages can also serve the content of the <code class="highlighter-rouge">master</code>
+branch or from the <code class="highlighter-rouge">docs</code> subdirectory of the <code class="highlighter-rouge">master</code> branch. For my
+use-case, keeping the site’s source code in the <code class="highlighter-rouge">master</code> branch and the
+compiled result in the <code class="highlighter-rouge">gh-pages</code> branch felt, however, like the cleanest
+possible solution. All of these options can be configured in the
+repository’s settings. <a href="#fnref:4" class="reversefootnote">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=How+to+host+your+site+for+free+using+GitHub+Pages%20-%20https://www.milanvit.net/post/how-to-host-your-site-for-free-using-github-pages%20by%20@miloso" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"></path></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.milanvit.net/post/how-to-host-your-site-for-free-using-github-pages" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"></path></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://www.milanvit.net/post/how-to-host-your-site-for-free-using-github-pages" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewbox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"></path></svg>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              var disqus_config = function () {
+                this.page.url = 'https://www.milanvit.net/post/how-to-host-your-site-for-free-using-github-pages';
+                this.page.identifier = '/post/how-to-host-your-site-for-free-using-github-pages';
+              };
+
+              (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://czech-in-japan.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+              </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+          
+        </article>
+        <footer class="footer ">
+  <p>
+    Blog about a programmer who followed his love halfway across the world,
+    from Czech Republic all the way to Japan. Expect stories about a
+    possible clash of cultures, about programming and IT in general and maybe
+    micro-stories containing a random thought or two.
+  </p>
+  <p>
+    PGP: D422 FA2F 0037 0ABD D1CC 22E5 4684 6F75 9ECA 2702
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48762418-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-48762418-2');
+  </script>
+
+
+<script src="/assets/vendor-600e49ea335fb895c0d326da11300ea5b2bcc0a442b7932323e7515bfd9e907e.js" integrity="sha256-YA5J6jNfuJXA0ybaETAOpbK8wKRCt5MjI+dRW/2ekH4=" crossorigin="anonymous" type="text/javascript"></script>
+
+
+
+
+
+<script src="/assets/application-4a681f5b35602db0857cb9b635a41856907ed1474fe9ab74d512b2ebf18aaaf0.js" integrity="sha256-SmgfWzVgLbCFfLm2NaQYVpB+0UdP6at01RKy6/GKqvA=" crossorigin="anonymous" type="text/javascript"></script>
+
+</body>
+</html>

@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Czech/in/Japan | How to master a multi-stage continuous delivery of Vapor apps to a Kubernetes cluster</title>
+  <meta name="description" content="Wow, that title sure is a mouthful. I think is certainly breaks some sort of weird record for this site!">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="How to master a multi-stage continuous delivery of Vapor apps to a Kubernetes cluster">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster">
+  <meta property="og:description" content="Wow, that title sure is a mouthful. I think is certainly breaks some sort of weird record for this site!">
+  <meta property="og:site_name" content="Czech/in/Japan">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster">
+  <meta name="twitter:title" content="How to master a multi-stage continuous delivery of Vapor apps to a Kubernetes cluster">
+  <meta name="twitter:description" content="Wow, that title sure is a mouthful. I think is certainly breaks some sort of weird record for this site!">
+
+  
+    <meta property="og:image" content="https://www.milanvit.net/assets/og-image-bca1a468cbe16cb1cd7ec48b1f3a230055493f9f1af68053377df52daabb353a.jpg">
+    <meta name="twitter:image" content="https://www.milanvit.net/assets/og-image-bca1a468cbe16cb1cd7ec48b1f3a230055493f9f1af68053377df52daabb353a.jpg">
+  
+
+  <link href="https://www.milanvit.net/feed.xml" type="application/rss+xml" rel="alternate" title="Czech/in/Japan Last 10 blog posts" />
+
+  
+    <link rel="stylesheet" type="text/css" integrity="sha256-hdqzaNBWtdZkGPv9flWonzT2RO6BHIIYyBAXIEQmEhs=" crossorigin="anonymous" href="/assets/fonts-85dab368d056b5d66418fbfd7e55a89f34f644ee811c8218c81017204426121b.css">
+  
+
+  
+    <link rel="icon" type="image/x-icon" href="/assets/favicon-dark-fac4856bcfeff3a961d7e0e8aed66d092c0310d947b9aa4df542239cc0d38972.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon-dark-7b846b796b765f9e202256472fcdfd8c46fa745b74b1f937f105ff2a89e01ae5.png">
+    <link rel="stylesheet" type="text/css" integrity="sha256-Kp4Uw6GpoPhKmWJNsTsGogCMKnKpHo8f19j+uYQ5mw8=" crossorigin="anonymous" href="/assets/dark-2a9e14c3a1a9a0f84a99624db13b06a2008c2a72a91e8f1fd7d8feb984399b0f.css">
+  
+</head>
+
+<body>
+  <main>
+    <div class="grid grid-centered">
+      <div class="grid-cell">
+        <nav class="header-nav ">
+  <a href="/" class="header-logo" title="Czech/in/Japan">Czech/in/Japan</a>
+  <ul class="header-links">
+    
+      <li>
+        <a href="/about" title="About me">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-about">
+  <use href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about" xlink:href="/assets/about-ecf154b571ab8034ae00aeed91a3b7ad68db80b46d958753ad6216c919486e88.svg#icon-about"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://twitter.com/miloso" rel="noreferrer noopener" target="_blank" title="Twitter">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-twitter">
+  <use href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter" xlink:href="/assets/twitter-8842c33965263ad1b03a978406826677a668f94125d5837e70ab83f24b3213a7.svg#icon-twitter"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="https://www.facebook.com/miloso" rel="noreferrer noopener" target="_blank" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-facebook">
+  <use href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook" xlink:href="/assets/facebook-72c99b26d37bee65607720abb23d26b44ef30cca1187f98b0d9305be1230b1bf.svg#icon-facebook"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://github.com/Cellane" rel="noreferrer noopener" target="_blank" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-github">
+  <use href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github" xlink:href="/assets/github-094f81040819f34343ee6ffff0980f17e2807b08b595eaaf66ae3554934fd78d.svg#icon-github"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+      <li>
+        <a href="https://keybase.io/Cellane" rel="noreferrer noopener" target="_blank" title="Keybase">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-keybase">
+  <use href="/assets/keybase-4004cb8fb3e3f1f748f19fbea8a591d0bf5a00865e53977d673f2b09fcabf6e4.svg#icon-keybase" xlink:href="/assets/keybase-4004cb8fb3e3f1f748f19fbea8a591d0bf5a00865e53977d673f2b09fcabf6e4.svg#icon-keybase"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+      <li>
+        <a href="https://www.linkedin.com/in/vitmilan" rel="noreferrer noopener" target="_blank" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-linkedin">
+  <use href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin" xlink:href="/assets/linkedin-cdc5c107044324a3dfbea2e9ead15873f8dee304c37d73a046988956b706256e.svg#icon-linkedin"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <li>
+        <a href="mailto:milanvit@milanvit.net" title="Email">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-email">
+  <use href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email" xlink:href="/assets/email-782473193bf750036fdb90e8daa075508a20509d01854c09f3237c144a3f0601.svg#icon-email"></use>
+</svg>
+
+        </a>
+      </li>
+    
+    
+      <li>
+        <a href="/feed.xml" rel="noreferrer noopener" target="_blank" title="RSS">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-rss">
+  <use href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss" xlink:href="/assets/rss-541ec5cea9cefd10d2fcfec01888f3f231a8829940249835fa7b7b3a12ae0d0d.svg#icon-rss"></use>
+</svg>
+
+        </a>
+      </li>
+    
+  </ul>
+</nav>
+
+        <article class="article ">
+          <header class="article-header">
+            <h1>How to master a multi-stage continuous delivery of Vapor apps to a Kubernetes cluster</h1>
+            <p>Wow, that title sure is a mouthful. I think is certainly breaks some sort of weird record for this site!</p>
+            <div class="article-list-footer">
+              <span class="article-list-date">
+                May 30, 2018
+              </span>
+              <span class="article-list-divider">-</span>
+              <span class="article-list-minutes">
+                
+                
+                  14 minute read
+                
+              </span>
+              <span class="article-list-divider">-</span>
+              <div class="article-list-tags">
+                
+                  <a href="/tag/vapor">vapor</a>
+                
+                  <a href="/tag/web">web</a>
+                
+              </div>
+            </div>
+          </header>
+
+          <div class="article-content">
+            <p>So you heard how
+<a href="https://bygri.github.io/2018/01/24/vapor-3-with-docker.html">awesome Docker is</a>
+and how
+<a href="https://bygri.github.io/2018/05/14/developing-deploying-vapor-docker.html">best to use</a>
+it with your Vapor app, and you also heard that Kubernetes is basically the best
+invention since sliced bread, but you’re not sure how exactly would you put all
+of that together? Well, then you’re just like me a few weeks ago! I’ll show you
+in this article one way of putting Docker and Kubernetes together, and while I’m
+not saying this is the best possible configuration… oh who am I kidding, of
+course I think that!</p>
+
+<p>Let’s start with the list of services we’ll be using in this tutorial. Bear in
+mind that most of these can be replaced with a different provider, maybe one
+that you already use for your other projects, but to keep things simple, we’ll
+rely on Google Cloud Platform whenever possible<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup>.</p>
+
+<ul>
+  <li><strong>Repository hosting</strong>:
+  <a href="https://cloud.google.com/source-repositories/">Google Cloud Source Repositories</a>
+  (alternatives: <a href="https://github.com">GitHub</a>,
+  <a href="https://bitbucket.org">BitBucket</a>, <a href="https://gitlab.com">GitLab</a>,…)</li>
+  <li><strong>Container builder</strong>:
+  <a href="https://cloud.google.com/container-builder/">Google Container Builder</a>
+  (alternatives: any CI solutions, such as <a href="https://circleci.com">CircleCI</a>,
+  <a href="https://travis-ci.org">Travis CI</a>, or if you hate yourself, Jenkins)</li>
+  <li><strong>Container image registry</strong>:
+  <a href="https://cloud.google.com/container-registry/">Google Container Image Registry</a>
+  (alternatives: <a href="https://hub.docker.com">Docker Hub</a> or self-hosted)</li>
+  <li><strong>Kubernetes cluster</strong>: hosted and managed with
+  <a href="https://cloud.google.com/kubernetes-engine/">Google Kubernetes Engine</a>
+  (alternatives: self-managed with
+  <a href="https://github.com/kubernetes/kops">Kops</a>)</li>
+  <li><strong>The “glue” that connects it all together</strong>:
+  <a href="https://www.spinnaker.io">Spinnaker</a></li>
+</ul>
+
+<h2 id="before-we-begin">Before we begin</h2>
+
+<p>Let’s create the Kubernetes cluster first by heading to
+<a href="https://cloud.google.com">Google Cloud Platform</a> and logging in to your
+account. If this is your first time using GCP, you can use the
+<a href="https://console.cloud.google.com/freetrial">free trial</a> to get $300 of free
+credit, which is more than enough for completing this tutorial. Once logged in,
+<a href="https://console.cloud.google.com/cloud-resource-manager">create an empty project here</a>
+(mine is called “Kubernetes Sandbox” with project ID
+<code class="highlighter-rouge">kubernetes-sandbox-205712</code>, so whenever you see this ID throughout the rest of
+the article, make sure to replace it with your actual project ID) and after
+returning back to <a href="https://console.cloud.google.com/home/dashboard">dashboard</a>,
+make sure this newly created project is selected in the top left corner.</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-1@2x-038d8d378fb97e0bcf26b699088553776a77bcfc76dcd18ecc394dbb795c602f.png">
+      <img src="/assets/2018-05-30-kubernetes-1-17f798262c2bb9167a390d78259fd174921f00540c78750a8857a5896c5fd819.png" alt="Google Cloud Platform dashboard, with correct project selected in top left corner." data-rjs="/assets/2018-05-30-kubernetes-1@2x-038d8d378fb97e0bcf26b699088553776a77bcfc76dcd18ecc394dbb795c602f.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Google Cloud Platform dashboard, with correct project selected in top left corner.</figcaption>
+  </figure>
+
+<p>When you have your project, visit
+<a href="https://console.cloud.google.com/flows/enableapi?apiid=container,cloudresourcemanager.googleapis.com,cloudbuild.googleapis.com&amp;_ga=2.32487671.-89722181.1527683246">this page</a>
+to enable Kubernetes Engine, Container Builder, and Resource Manager APIs in the
+project.</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-2@2x-c351132253f3f64c4bb33a4e830c1006c7bec5f7233a059c9aebcf07f087d614.png">
+      <img src="/assets/2018-05-30-kubernetes-2-63acc4e572031fd4f4e5df30f6a41adfa601923ca7fd87f76b748230a253c6d1.png" alt="Enabling required APIs is really quite simple." data-rjs="/assets/2018-05-30-kubernetes-2@2x-c351132253f3f64c4bb33a4e830c1006c7bec5f7233a059c9aebcf07f087d614.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Enabling required APIs is really quite simple.</figcaption>
+  </figure>
+
+<p>This might take a few minutes, so let’s setup your local environment while
+waiting.</p>
+
+<h2 id="setting-up-your-local-environment">Setting up your local environment</h2>
+
+<p>To interact with your GCP account as well as with your cluster, we’ll need a few
+tools. From terminal, install the Google Cloud SDK and Kubernetes control tools
+with the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">brew <span class="nb">install </span>kubectl kubernetes-helm
+brew cask <span class="nb">install </span>google-cloud-sdk</code></pre></figure>
+
+<p>The <code class="highlighter-rouge">kubectl</code> tool is used to interact with your cluster, <code class="highlighter-rouge">kubernetes-helm</code>
+installs Helm, a package manager for Kubernetes, and <code class="highlighter-rouge">google-cloud-sdk</code> allows
+us to control your GCP account from the terminal. When everything is installed,
+run the <code class="highlighter-rouge">gcloud init</code> command to login to your GCP account. When prompted,
+select the project to use as a default one (in my case,
+<code class="highlighter-rouge">kubernetes-sandbox-205712</code>) and set your default zone to <code class="highlighter-rouge">us-central1-f</code>.</p>
+
+<h2 id="starting-the-cluster">Starting the cluster</h2>
+
+<p>I’m not sure if this section even deserves its own heading because starting your
+own Kubernetes cluster in GKE is as simple as running the following command:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gcloud container clusters create vapor-tutorial <span class="nt">--machine-type</span><span class="o">=</span>n1-standard-2</code></pre></figure>
+
+<p>Do so and your cluster should be up and running in a few minutes. You can always
+check the progress <a href="https://console.cloud.google.com/kubernetes/list">here</a>.</p>
+
+<h2 id="configuring-identity-and-access-management">Configuring identity and access management</h2>
+
+<p>While we’re waiting for the cluster to be ready, let’s create service account
+for Spinnaker so that it can store its configuration in Google Cloud Storage.
+Run the following commands (be sure to only run the versions for the shell you
+actually use):</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gcloud iam service-accounts create spinnaker-storage-account <span class="nt">--display-name</span> spinnaker-storage-account
+
+<span class="c"># Fish version</span>
+<span class="nb">set</span> <span class="nt">-x</span> SA_EMAIL <span class="o">(</span>gcloud iam service-accounts list <span class="nt">--filter</span><span class="o">=</span><span class="s2">"displayName:spinnaker-storage-account"</span> <span class="nt">--format</span><span class="o">=</span><span class="s1">'value(email)'</span><span class="o">)</span>
+<span class="nb">set</span> <span class="nt">-x</span> PROJECT <span class="o">(</span>gcloud info <span class="nt">--format</span><span class="o">=</span><span class="s1">'value(config.project)'</span><span class="o">)</span>
+
+<span class="c"># Bash version</span>
+<span class="nb">export </span><span class="nv">SA_EMAIL</span><span class="o">=</span><span class="k">$(</span>gcloud iam service-accounts list <span class="nt">--filter</span><span class="o">=</span><span class="s2">"displayName:spinnaker-storage-account"</span> <span class="nt">--format</span><span class="o">=</span><span class="s1">'value(email)'</span><span class="k">)</span>
+<span class="nb">export </span><span class="nv">PROJECT</span><span class="o">=</span><span class="k">$(</span>gcloud info <span class="nt">--format</span><span class="o">=</span><span class="s1">'value(config.project)'</span><span class="k">)</span>
+
+<span class="c"># Both shells</span>
+gcloud projects add-iam-policy-binding <span class="nv">$PROJECT</span> <span class="nt">--role</span> roles/storage.admin <span class="nt">--member</span> serviceAccount:<span class="nv">$SA_EMAIL</span>
+gcloud iam service-accounts keys create spinnaker-sa.json <span class="nt">--iam-account</span> <span class="nv">$SA_EMAIL</span></code></pre></figure>
+
+<p>As a result of these commands, the <code class="highlighter-rouge">spinnaker-storage-account</code> service account
+was created (you can verify that
+<a href="https://console.cloud.google.com/iam-admin/serviceaccounts/project">here</a>) with
+the <code class="highlighter-rouge">roles/storage.admin</code> role assigned (verify
+<a href="https://console.cloud.google.com/iam-admin/iam">here</a>. Furthermore, credentials
+to authenticate with that service role have been stored in the
+<code class="highlighter-rouge">spinnaker-sa.json</code> file in your current directory.</p>
+
+<h2 id="deploying-spinnaker-using-helm">Deploying Spinnaker using Helm</h2>
+
+<p>To deploy Spinnaker in our Kubernetes cluster, we’ll use the Helm package
+manager. The following commands create a <code class="highlighter-rouge">cluster-admin</code> role in Kubernetes for
+Tiller (server-side component of Helm) and Spinnaker (so that it can manipulate
+Kubernetes configuration) and then initialize Helm &amp; Tiller in the cluster:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># Fish version</span>
+kubectl create clusterrolebinding user-admin-binding <span class="nt">--clusterrole</span><span class="o">=</span>cluster-admin <span class="nt">--user</span><span class="o">=(</span>gcloud config get-value account<span class="o">)</span>
+
+<span class="c"># Bash version</span>
+kubectl create clusterrolebinding user-admin-binding <span class="nt">--clusterrole</span><span class="o">=</span>cluster-admin <span class="nt">--user</span><span class="o">=</span><span class="k">$(</span>gcloud config get-value account<span class="k">)</span>
+
+<span class="c"># Both shells</span>
+kubectl create serviceaccount tiller <span class="nt">--namespace</span> kube-system
+kubectl create clusterrolebinding tiller-admin-binding <span class="nt">--clusterrole</span><span class="o">=</span>cluster-admin <span class="nt">--serviceaccount</span><span class="o">=</span>kube-system:tiller
+kubectl create clusterrolebinding <span class="nt">--clusterrole</span><span class="o">=</span>cluster-admin <span class="nt">--serviceaccount</span><span class="o">=</span>default:default spinnaker-admin
+helm init <span class="nt">--service-account</span><span class="o">=</span>tiller
+helm update</code></pre></figure>
+
+<p>You can verify that everything works properly with the <code class="highlighter-rouge">helm version</code> command.
+After that, the following commands will create bucket to store Spinnaker’s
+configuration and and a configuration file that will grant Spinnaker access to
+the service account we created earlier:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># Fish version</span>
+<span class="nb">set</span> <span class="nt">-x</span> BUCKET <span class="nv">$PROJECT</span><span class="nt">-spinnaker-config</span>
+
+<span class="c"># Bash version</span>
+<span class="nb">export </span><span class="nv">BUCKET</span><span class="o">=</span><span class="nv">$PROJECT</span><span class="nt">-spinnaker-config</span>
+
+<span class="c"># Both</span>
+gsutil mb <span class="nt">-c</span> regional <span class="nt">-l</span> us-central1 gs://<span class="nv">$BUCKET</span>
+
+<span class="c"># Bash-only, not sure how to re-write this for Fish</span>
+<span class="c"># If using Fish, hold your nose and switch to Bash for a second</span>
+<span class="nb">export </span><span class="nv">SA_JSON</span><span class="o">=</span><span class="k">$(</span><span class="nb">cat </span>spinnaker-sa.json<span class="k">)</span>
+<span class="nb">export </span><span class="nv">PROJECT</span><span class="o">=</span><span class="k">$(</span>gcloud info <span class="nt">--format</span><span class="o">=</span><span class="s1">'value(config.project)'</span><span class="k">)</span>
+<span class="nb">export </span><span class="nv">BUCKET</span><span class="o">=</span><span class="nv">$PROJECT</span><span class="nt">-spinnaker-config</span>
+<span class="nb">cat</span> <span class="o">&gt;</span> spinnaker-config.yaml <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+storageBucket: </span><span class="nv">$BUCKET</span><span class="sh">
+gcs:
+  enabled: true
+  project: </span><span class="nv">$PROJECT</span><span class="sh">
+  jsonKey: '</span><span class="nv">$SA_JSON</span><span class="sh">'
+
+# Disable minio as the default
+minio:
+  enabled: false
+
+# Configure your Docker registries here
+accounts:
+- name: gcr
+  address: https://gcr.io
+  username: _json_key
+  password: '</span><span class="nv">$SA_JSON</span><span class="sh">'
+  email: 1234@5678.com
+EOF</span></code></pre></figure>
+
+<p>Finally, deploy Spinnaker with the following command:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">helm <span class="nb">install</span> <span class="nt">-n</span> <span class="nb">cd </span>stable/spinnaker <span class="nt">-f</span> spinnaker-config.yaml <span class="nt">--timeout</span> 600 <span class="nt">--version</span> 0.3.1</code></pre></figure>
+
+<p>This command will run for at least two minutes, so don’t panic. If you wish to
+peek under the <del>skirt</del>hood of the deployment progress, you can do so by
+issuing the <code class="highlighter-rouge">watch -n 5 -d -t kubectl get deployments</code> command.</p>
+
+<p>After Spinnaker is installed, set up port-forwarding to access its UI:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell"><span class="c"># Fish version</span>
+<span class="nb">set</span> <span class="nt">-x</span> DECK_POD <span class="o">(</span>kubectl get pods <span class="nt">--namespace</span> default <span class="nt">-l</span> <span class="s2">"component=deck"</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.items[0].metadata.name}"</span><span class="o">)</span>
+
+<span class="c"># Bash version</span>
+<span class="nb">export </span><span class="nv">DECK_POD</span><span class="o">=</span><span class="k">$(</span>kubectl get pods <span class="nt">--namespace</span> default <span class="nt">-l</span> <span class="s2">"component=deck"</span> <span class="nt">-o</span> <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">"{.items[0].metadata.name}"</span><span class="k">)</span>
+
+<span class="c"># Both shells</span>
+kubectl port-forward <span class="nt">--namespace</span> default <span class="nv">$DECK_POD</span> 8080:9000 <span class="o">&gt;&gt;</span> /dev/null &amp;</code></pre></figure>
+
+<p>Point your browser at <a href="http://localhost:8080">http://localhost:8080</a> and you
+should be greeted by Spinnaker’s dashboard. But before we get into that, let us
+set up our project.</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-3@2x-0d73c95acfde48d7ddee711e203005597721f9b628dfe279d547f3ec97c01521.png">
+      <img src="/assets/2018-05-30-kubernetes-3-cd65681b646202f99bfd04100e0ff64dbf33b6cb798073d84292d3b4a5438f58.png" alt="Many commands, handle it! (And many more to come)" data-rjs="/assets/2018-05-30-kubernetes-3@2x-0d73c95acfde48d7ddee711e203005597721f9b628dfe279d547f3ec97c01521.png" data-action="zoom" data-zooming-width="1366" data-zooming-height="404" />
+    </a>
+    <figcaption>Many commands, handle it! (And many more to come)</figcaption>
+  </figure>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-4@2x-bd604c96164300108e871932f54c594eb1889941351462424e77bf551514909e.png">
+      <img src="/assets/2018-05-30-kubernetes-4-efac8cdf0bfac2495d2eb8b9df137c880cc5618710af5f33910027470d6794a0.png" alt="Spinnaker’s empty dashboard. Don’t worry, that’ll change soon." data-rjs="/assets/2018-05-30-kubernetes-4@2x-bd604c96164300108e871932f54c594eb1889941351462424e77bf551514909e.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Spinnaker’s empty dashboard. Don’t worry, that’ll change soon.</figcaption>
+  </figure>
+
+<h2 id="setting-up-source-code-repository">Setting up source code repository</h2>
+
+<p>For this example, I’ll use Tim Cordon’s <em>TIL Application</em> from his excellent
+<a href="https://store.raywenderlich.com/products/server-side-swift-with-vapor">book about server-side Swift</a>
+– we are, after all, mostly interested in setting all this up for our Vapor
+projects. If you don’t own it yet, you are doing something seriously wrong.
+Clone the repository with <code class="highlighter-rouge">git clone https://github.com/raywenderlich/vapor-til.git</code>
+and in the root of the repository, create a production-grade <code class="highlighter-rouge">Dockerfile</code>,
+called <code class="highlighter-rouge">Dockerfile.production</code>:</p>
+
+<figure class="highlight"><pre><code class="language-docker" data-lang="docker"><span class="k">FROM</span><span class="s"> swift:4.1 as builder</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+<span class="k">RUN </span><span class="nb">mkdir</span> <span class="nt">-p</span> /build/lib <span class="o">&amp;&amp;</span> <span class="nb">cp</span> <span class="nt">-R</span> /usr/lib/swift/linux/<span class="k">*</span>.so /build/lib
+<span class="k">RUN </span>swift build <span class="nt">-c</span> release <span class="o">&amp;&amp;</span> <span class="nb">mv</span> <span class="sb">`</span>swift build <span class="nt">-c</span> release <span class="nt">--show-bin-path</span><span class="sb">`</span> /build/bin
+
+<span class="k">FROM</span><span class="s"> ubuntu:16.04</span>
+<span class="k">RUN </span>apt-get <span class="nt">-qq</span> update <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    apt-get <span class="nb">install</span> <span class="nt">-y</span> libicu55 libxml2 libbsd0 libcurl3 libatomic1 tzdata <span class="o">&amp;&amp;</span> <span class="se">\
+</span>    <span class="nb">rm</span> <span class="nt">-r</span> /var/lib/apt/lists/<span class="k">*</span>
+<span class="k">WORKDIR</span><span class="s"> /app</span>
+<span class="k">COPY</span><span class="s"> --from=builder /build/bin/Run .</span>
+<span class="k">COPY</span><span class="s"> --from=builder /build/lib/* /usr/lib/</span>
+<span class="k">COPY</span><span class="s"> Public/ ./Public/</span>
+<span class="k">COPY</span><span class="s"> Resources/ ./Resources/</span>
+<span class="k">EXPOSE</span><span class="s"> 8080</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["./Run", "serve", "-e", "prod", "-b", "0.0.0.0"]</span></code></pre></figure>
+
+<p>Set up a remote repository (if you are asked about enabling API when issuing the
+first command, confirm with <code class="highlighter-rouge">y</code>) and commit your <code class="highlighter-rouge">Dockerfile</code> with the following
+commands:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gcloud <span class="nb">source </span>repos create tilapp
+git config credential.<span class="s1">'https://source.developers.google.com'</span>.helper gcloud
+git remote add gcp https://source.developers.google.com/p/<span class="nv">$PROJECT</span>/r/tilapp
+git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Added production Dockerfile"</span>
+git push gcp master</code></pre></figure>
+
+<p>After the code is pushed, you should be able to see your code
+<a href="https://console.cloud.google.com/code/develop/browse/tilapp/master">here</a>.</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-5@2x-4b32f62ac06c5d13bca4a1fbfd1cbdee3325cec7616bfb5cf0f18241de37a87a.png">
+      <img src="/assets/2018-05-30-kubernetes-5-65e2ecacbe3989e17b43889e2807a2cf7a0a964d1a04b37d391fa1bbc003f107.png" alt="Our code, in the cloud!" data-rjs="/assets/2018-05-30-kubernetes-5@2x-4b32f62ac06c5d13bca4a1fbfd1cbdee3325cec7616bfb5cf0f18241de37a87a.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Our code, in the cloud!</figcaption>
+  </figure>
+
+<h2 id="configuring-the-build-triggers">Configuring the build triggers</h2>
+
+<p>The next step is configuring Google Container Builder to build a Docker image
+for us automatically anytime we push a new tag. To do so,
+<a href="https://console.cloud.google.com/gcr/triggers/add">navigate here</a>, select
+<strong>Cloud Source Repository</strong> and confirm with <strong>Continue</strong>. In the next step,
+select our repository (<code class="highlighter-rouge">tilapp</code>) and in the last step, choose the following
+options:</p>
+
+<ul>
+  <li><strong>Name</strong>: <code class="highlighter-rouge">tilapp-tags</code></li>
+  <li><strong>Trigger type</strong>: Tag</li>
+  <li><strong>Tag (regex)</strong>: <code class="highlighter-rouge">v.*</code></li>
+  <li><strong>Build configuration</strong>: <code class="highlighter-rouge">Dockerfile</code></li>
+  <li><strong>Dockerfile directory</strong>: (leave empty)</li>
+  <li><strong>Dockerfile name</strong>: <code class="highlighter-rouge">Dockerfile.production</code></li>
+  <li><strong>Image name</strong>: <code class="highlighter-rouge">gcr.io/kubernetes-sandbox-205712/$REPO_NAME:$TAG_NAME</code> (make
+  sure to replace the project name with your project name, of course)</li>
+</ul>
+
+<p>Confirm by clicking the <strong>Create trigger</strong> button and return to the terminal:
+let’s test the trigger by pushing a tag to our repository!</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-6@2x-ca35fcd24afc3d853ded36498bf6694b04ed80c35d8cc3a0c2e6bf7c728639ac.png">
+      <img src="/assets/2018-05-30-kubernetes-6-b2c9ebbf0bd2e1b6c031f654ec2ad56923b39d162679dfb01d3642403936d997.png" alt="Make sure you filled in everything completely, and adjusted project name!" data-rjs="/assets/2018-05-30-kubernetes-6@2x-ca35fcd24afc3d853ded36498bf6694b04ed80c35d8cc3a0c2e6bf7c728639ac.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Make sure you filled in everything completely, and adjusted project name!</figcaption>
+  </figure>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">git tag v1.0.0
+git push gcp <span class="nt">--tags</span></code></pre></figure>
+
+<p>If everything went well, you should see a build going on
+<a href="https://console.cloud.google.com/gcr/builds">here</a>.</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-7@2x-ef9738231da0e7b4737806cc898a2518ca59beec1487cda50dd97269b481bf73.png">
+      <img src="/assets/2018-05-30-kubernetes-7-273b87f14273f9258a971be240f9f6da5edec02de5a72168efc8a30b3ff1c7b4.png" alt="Build, Google, build! 🏃‍" data-rjs="/assets/2018-05-30-kubernetes-7@2x-ef9738231da0e7b4737806cc898a2518ca59beec1487cda50dd97269b481bf73.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Build, Google, build! 🏃‍</figcaption>
+  </figure>
+
+<h2 id="configuring-the-pipeline">Configuring the pipeline</h2>
+
+<p>Back in Spinnaker’s dashboard, click on the <strong>Actions</strong> button and select the
+<strong>Create Application</strong> option. Fill in the form like this:</p>
+
+<p><a href="/assets/2018-05-30-kubernetes-8@2x-13f088f249235389b067c1885315a92eb684a98fb282b78e21df93c2290cd8dd.png">
+    <img src="/assets/2018-05-30-kubernetes-8-775285a2e87f933a4cb46e7a854e93892895104e017c6f826f6f9129284327a1.png" alt="Some images are more difficult to comment on than others." data-rjs="/assets/2018-05-30-kubernetes-8@2x-13f088f249235389b067c1885315a92eb684a98fb282b78e21df93c2290cd8dd.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+  </a></p>
+
+<p>Confirm by clicking on the <strong>Create</strong> button. Let’s switch back to terminal for
+a second again and create two load balancers by creating following YAML files:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">tilapp-vapor-canary</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">tilapp-vapor-canary</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">80-80</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="s">80</span>
+    <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="s">8080</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">tilapp-vapor-canary</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+  <span class="na">sessionAffinity</span><span class="pi">:</span> <span class="s">None</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">LoadBalancer</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">tilapp-vapor-production</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">tilapp-vapor-production</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">80-80</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="s">80</span>
+    <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+    <span class="na">targetPort</span><span class="pi">:</span> <span class="s">8080</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">tilapp-vapor-production</span><span class="pi">:</span> <span class="s2">"</span><span class="s">true"</span>
+  <span class="na">sessionAffinity</span><span class="pi">:</span> <span class="s">None</span>
+  <span class="na">type</span><span class="pi">:</span> <span class="s">LoadBalancer</span></code></pre></figure>
+
+<p>I called mine <code class="highlighter-rouge">loadbalancer-canary.yaml</code> and <code class="highlighter-rouge">loadbalancer-production.yaml</code>,
+but the naming doesn’t really matter because you can just import them both into
+your cluster by issuing the <code class="highlighter-rouge">kubectl apply -f *.yaml</code> command in the directory
+in which you stored the YAML files.</p>
+
+<p>Back in Spinnaker’s UI, click on <strong>Pipelines</strong> in the top left corner, then the
+button with a plus symbol in the top right corner. Call your pipeline <strong>Deploy</strong>
+and confirm with <strong>Create</strong>. The dashboard takes you to the section where you
+can create pipeline by combining different stages. Our pipeline will be rather
+simple, so let’s start by configuring the stage Spinnaker already created for
+us, called <strong>Configuration</strong>.</p>
+
+<p>In the <strong>Automated Triggers</strong> section, click the <strong>Add Trigger</strong> button and fill
+in the following details:</p>
+
+<ul>
+  <li><strong>Type</strong>: Docker Registry</li>
+  <li><strong>Registry Name</strong>: <code class="highlighter-rouge">gcr</code></li>
+  <li><strong>Organization</strong>: <code class="highlighter-rouge">kubernetes-sandbox-205712</code> (this will of course differ for
+  you)</li>
+  <li><strong>Image</strong>: <code class="highlighter-rouge">kubernetes-sandbox-205712/tilapp</code></li>
+  <li><strong>Tag</strong>: <code class="highlighter-rouge">v.*</code></li>
+</ul>
+
+<p>Save changed by clicking the <strong>Save</strong> button in the bottom right corner.</p>
+
+<p><a href="/assets/2018-05-30-kubernetes-9@2x-41c803d423527476aed857b067f0b3c12eed3b05967812672a069f9814f9d47b.png">
+    <img src="/assets/2018-05-30-kubernetes-9-84761bf07230a681a58496bdf47c9143472d997bbeade151f6838e0cb1fa2f2c.png" alt="Some images are more difficult to comment on than others." data-rjs="/assets/2018-05-30-kubernetes-9@2x-41c803d423527476aed857b067f0b3c12eed3b05967812672a069f9814f9d47b.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+  </a></p>
+
+<p>Once that’s done, create another stage by clicking the <strong>Add Stage</strong> button and
+configure it like this:</p>
+
+<ul>
+  <li><strong>Type</strong>: Deploy</li>
+  <li><strong>Stage Name</strong>: Deploy to Canary</li>
+</ul>
+
+<p>In the <strong>Deploy Configuration</strong> section, click the <strong>Add server group</strong> button,
+choose <strong>Copy without a template</strong> and fill in the following details:</p>
+
+<ul>
+  <li><strong>Stack</strong>: <code class="highlighter-rouge">vapor</code></li>
+  <li><strong>Detail</strong>: <code class="highlighter-rouge">canary</code></li>
+  <li><strong>Containers</strong>: <code class="highlighter-rouge">gcr.io/kubernetes-sandbox-207512/tilapp:v.*</code></li>
+  <li><strong>Deployment</strong>: check</li>
+  <li><strong>History Limit</strong>: 2</li>
+  <li><strong>Max Surge</strong>: 100%</li>
+  <li><strong>Max Unavailable</strong>: 0%</li>
+  <li><strong>Load Balancers</strong>: <code class="highlighter-rouge">tilapp-vapor-canary</code></li>
+  <li><strong>Pull Policy</strong>: <code class="highlighter-rouge">ALWAYS</code></li>
+  <li><strong>Container ↝ Ports ↝ Container Port</strong>: 8080</li>
+</ul>
+
+<p>Confirm with <strong>Add</strong> – but wait, haven’t we forgotten something?</p>
+
+<p><a href="/assets/2018-05-30-kubernetes-10@2x-57ba62fb1dbc0f321bb179d8827f01429bee6d9afc5d15b9e210b0527c86113a.png">
+    <img src="/assets/2018-05-30-kubernetes-10-4ad6e18f4d713ffa0812aeb68bc6b5fdc36c215cc7f8d4405d9d9c3d661ab84a.png" alt="Some images are more difficult to comment on than others." data-rjs="/assets/2018-05-30-kubernetes-10@2x-57ba62fb1dbc0f321bb179d8827f01429bee6d9afc5d15b9e210b0527c86113a.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+  </a></p>
+
+<p><a href="/assets/2018-05-30-kubernetes-11@2x-46283da535b36121be6d295a550a303da43074f0a115b98aea8784f45dae9281.png">
+    <img src="/assets/2018-05-30-kubernetes-11-c9ce1f0915baecbe622742cb7e3151cce260eedd1493760fd919c240652daddc.png" alt="Some images are more difficult to comment on than others." data-rjs="/assets/2018-05-30-kubernetes-11@2x-46283da535b36121be6d295a550a303da43074f0a115b98aea8784f45dae9281.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+  </a></p>
+
+<p>If you’re familiar with the TIL Application, you know it uses PostgreSQL
+database to store all the acronyms. But we haven’t configured any database just
+yet! Fortunately, we can use Helm for that, and while we’re at it, we can
+actually provision two separate databases: one for the Canary environment and
+one for the Production environment.</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">helm <span class="nb">install</span> <span class="nt">-n</span> db-canary stable/postgresql <span class="nt">--set</span> <span class="nv">postgresPassword</span><span class="o">=</span>password,postgresDatabase<span class="o">=</span>vapor
+helm <span class="nb">install</span> <span class="nt">-n</span> db-production stable/postgresql <span class="nt">--set</span> <span class="nv">postgresPassword</span><span class="o">=</span>password,postgresDatabase<span class="o">=</span>vapor</code></pre></figure>
+
+<p>Of course, you should pick a bit safer password, or even omit specifying it
+completely and have Helm auto-generate the password for you – but hey, it’ll do
+for now.</p>
+
+<p>Back in Spinnaker’s dashboard, edit the server group you just created and scroll
+to the <strong>Container ↝ Basic Settings</strong> section. Expand it and in the
+<strong>Environmental Variables</strong> sub-section, add a new variable with following
+configuration:</p>
+
+<ul>
+  <li><strong>Name</strong>: <code class="highlighter-rouge">DATABASE_URL</code></li>
+  <li><strong>Value</strong>: <code class="highlighter-rouge">postgres://postgres:password@db-canary-postgresql.default.svc.cluster.local:5432/vapor</code></li>
+</ul>
+
+<p>In production environment, it would be better if the value came out of
+Kubernetes secret, but I’ll kindly leave that up to you. Confirm the change by
+pressing the <strong>Done</strong> button and add another stage.</p>
+
+<p><a href="/assets/2018-05-30-kubernetes-12@2x-6b400610ce51d74f74bb81c4af47af47cfb76a282e19d60acb86ec045ceb1d26.png">
+    <img src="/assets/2018-05-30-kubernetes-12-4cf28e55d7ff27a6eee0c45678fe261b424842b0da64405ea73cb4e23d2826fe.png" alt="Some images are more difficult to comment on than others." data-rjs="/assets/2018-05-30-kubernetes-12@2x-6b400610ce51d74f74bb81c4af47af47cfb76a282e19d60acb86ec045ceb1d26.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+  </a></p>
+
+<ul>
+  <li><strong>Type</strong>: Manual Judgement</li>
+  <li><strong>Stage Name</strong>: Push to Production?</li>
+</ul>
+
+<p>Save again and finally, add last stage:</p>
+
+<ul>
+  <li><strong>Type</strong>: Deploy</li>
+  <li><strong>Stage Name</strong>: Deploy to Production</li>
+</ul>
+
+<p>Click the <strong>Add server group</strong> button again and fill the details. They are very
+similar to the Canary environment, with just a few changes, specifically number
+of desired pods, used load balancer and database URL.</p>
+
+<ul>
+  <li><strong>Stack</strong>: <code class="highlighter-rouge">vapor</code></li>
+  <li><strong>Detail</strong>: <code class="highlighter-rouge">production</code></li>
+  <li><strong>Containers</strong>: <code class="highlighter-rouge">gcr.io/kubernetes-sandbox-207512/tilapp:v.*</code></li>
+  <li><strong>Deployment</strong>: check</li>
+  <li><strong>History Limit</strong>: 2</li>
+  <li><strong>Max Surge</strong>: 100%</li>
+  <li><strong>Max Unavailable</strong>: 0%</li>
+  <li><strong>Load Balancers</strong>: <code class="highlighter-rouge">tilapp-vapor-production</code></li>
+  <li><strong>Capacity</strong>: 8</li>
+  <li><strong>Environmental Variables</strong>:
+    <ul>
+      <li><strong>Name</strong>: <code class="highlighter-rouge">DATABASE_URL</code></li>
+      <li><strong>Value</strong>: <code class="highlighter-rouge">postgres://postgres:password@db-production-postgresql.default.svc.cluster.local:5432/vapor</code></li>
+    </ul>
+  </li>
+  <li><strong>Pull Policy</strong>: <code class="highlighter-rouge">ALWAYS</code></li>
+  <li><strong>Container ↝ Ports ↝ Container Port</strong>: 8080</li>
+</ul>
+
+<p>Save changes and let’s try it! Return back to the main screen and click the
+<strong>Start Manual Execution</strong> link. Select the tag <strong>v1.0.0</strong> and watch!</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-13@2x-2175c9ab417b62f9622f2bb96aaf8db8eef4d9992b6ff55d592ff3272b34455e.png">
+      <img src="/assets/2018-05-30-kubernetes-13-97719b13632e61746899539a1ab5c65a0bdf8e59dfa9d097b50db069a90a784a.png" alt="Click “Start Manual Execution” on the right side of the screen." data-rjs="/assets/2018-05-30-kubernetes-13@2x-2175c9ab417b62f9622f2bb96aaf8db8eef4d9992b6ff55d592ff3272b34455e.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Click “Start Manual Execution” on the right side of the screen.</figcaption>
+  </figure>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-14@2x-f21ea136471159759685d2af1dbae86415ef9a7d5a397da76a15fa51dc14784d.png">
+      <img src="/assets/2018-05-30-kubernetes-14-38e3e8bb83aba4ccc690f6b3be34368ee6ccac48870e6e3f18f82e685a96b34b.png" alt="Select tag “v1.0.0” here." data-rjs="/assets/2018-05-30-kubernetes-14@2x-f21ea136471159759685d2af1dbae86415ef9a7d5a397da76a15fa51dc14784d.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Select tag “v1.0.0” here.</figcaption>
+  </figure>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-15@2x-f63b2be0ffd0ec29ff2f341e1a71750673273c8a8fb905de878e546d4db22f3e.png">
+      <img src="/assets/2018-05-30-kubernetes-15-fbcc071fc78b09eafd3eda130d6ac715df80b089e542638e95168027ac206ece.png" alt="Is it just me or does this just look… cool?" data-rjs="/assets/2018-05-30-kubernetes-15@2x-f63b2be0ffd0ec29ff2f341e1a71750673273c8a8fb905de878e546d4db22f3e.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>Is it just me or does this just look… cool?</figcaption>
+  </figure>
+
+<p>Once the first stage (Canary) is finished, before deploying to Production, you
+should of course check the result of your hard work. Click the
+<strong>Load Balancers</strong> link in the top right corner of the window and select the
+<strong>Default</strong> load balancer under the <code class="highlighter-rouge">tilapp-vapor-canary</code> section. Scroll down
+in the right part of the window until you see the <strong>Ingress</strong> IP address –
+click it and be amazed by your freshly deployed app! Try to register an user and
+make any changes so that you can verify that Production and Canary environments
+truly use different databases.</p>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-16@2x-5def9d971d5c229b2d0d4129bebed6c4be3f1f0c944a9aea7782cae62dd81e62.png">
+      <img src="/assets/2018-05-30-kubernetes-16-ab575db1ca4d354604c519d391ac6704e742fdef63fa94afa095cac85c875fed.png" alt="IP address of the load balancer is located on the right side." data-rjs="/assets/2018-05-30-kubernetes-16@2x-5def9d971d5c229b2d0d4129bebed6c4be3f1f0c944a9aea7782cae62dd81e62.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>IP address of the load balancer is located on the right side.</figcaption>
+  </figure>
+
+<figure>
+    <a href="/assets/2018-05-30-kubernetes-17@2x-46fe0d65484d78f22f6d1b2071fc1cd9e19abbe482935a6d15bb10e918aa30bc.png">
+      <img src="/assets/2018-05-30-kubernetes-17-2e8374d8c5a0c47053bc116afa4dd200cc4227fed25891a4b22499d91312298b.png" alt="And we’re live!" data-rjs="/assets/2018-05-30-kubernetes-17@2x-46fe0d65484d78f22f6d1b2071fc1cd9e19abbe482935a6d15bb10e918aa30bc.png" data-action="zoom" data-zooming-width="1332" data-zooming-height="677" />
+    </a>
+    <figcaption>And we’re live!</figcaption>
+  </figure>
+
+<p>Since the application looks good, confirm the deployment to Production
+environment in Spinnaker’s dashboard. After a minute or so, you will be able to
+access the Production version from the <strong>Load Balancers</strong> page – and as
+expected, any users, categories and acronyms created in the Canary environment
+stay in Canary environment without affecting the Production environment.</p>
+
+<h2 id="deploying-a-new-version">Deploying a new version</h2>
+
+<p>Finally, let’s make sure the whole workflow works just as well as its individual
+parts. Make a change in the <code class="highlighter-rouge">Resources/Views/index.leaf</code> file, then start the
+entire deployment process with the following commands:</p>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">git add <span class="nb">.</span>
+git commit <span class="nt">-m</span> <span class="s2">"Changed 'long' to 'looooong'
+git tag v1.0.1
+git push gcp --tags</span></code></pre></figure>
+
+<p>This should trigger Google Container Builder and force it to build new
+application image, then store it in the Google Container Registry from where
+will Spinnaker grab it and deploy to the Canary environment. After verifying
+that the surely magnificent changes you just made to the codebase are exactly
+what your customers desire, you can confirm push to Production.</p>
+
+<p>And that’s it for now! … why is it always so difficult to end an article
+without sounding like a Looney Tunes cartoon?</p>
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p>Yes, I’m well aware of the irony that just a few articles ago, I tried to
+show ways how to distance yourself from Google as far away as possible. The
+only reason why Google Cloud Platform is used in this example over, let’s
+say, Amazon Web Services or Microsoft Azure, is that for an unnamed project
+at work, we’re exploring the possibility of using Google Cloud Platform, and
+as part of the research I was doing, I collected enough material for an
+article like this. <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+          </div>
+          <div class="article-share">
+            
+            
+            <a href="https://twitter.com/home?status=How+to+master+a+multi-stage+continuous+delivery+of+Vapor+apps+to+a+Kubernetes+cluster%20-%20https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster%20by%20@miloso" title="Share on Twitter" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M492 109.5c-17.4 7.7-36 12.9-55.6 15.3 20-12 35.4-31 42.6-53.6 -18.7 11.1-39.4 19.2-61.5 23.5C399.8 75.8 374.6 64 346.8 64c-53.5 0-96.8 43.4-96.8 96.9 0 7.6 0.8 15 2.5 22.1 -80.5-4-151.9-42.6-199.6-101.3 -8.3 14.3-13.1 31-13.1 48.7 0 33.6 17.2 63.3 43.2 80.7C67 210.7 52 206.3 39 199c0 0.4 0 0.8 0 1.2 0 47 33.4 86.1 77.7 95 -8.1 2.2-16.7 3.4-25.5 3.4 -6.2 0-12.3-0.6-18.2-1.8 12.3 38.5 48.1 66.5 90.5 67.3 -33.1 26-74.9 41.5-120.3 41.5 -7.8 0-15.5-0.5-23.1-1.4C62.8 432 113.7 448 168.3 448 346.6 448 444 300.3 444 172.2c0-4.2-0.1-8.4-0.3-12.5C462.6 146 479 129 492 109.5z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster" title="Share on Facebook" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 512 512"><path d="M288 192v-38.1c0-17.2 3.8-25.9 30.5-25.9H352V64h-55.9c-68.5 0-91.1 31.4-91.1 85.3V192h-45v64h45v192h83V256h56.4l7.6-64H288z"/></svg>
+            </a>
+            <a href="https://plus.google.com/share?url=https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster" title="Share on Google+" rel="noreferrer noopener" target="_blank">
+              <svg viewBox="0 0 128 128"><path d="M40.7 55.9v16.1c0 0 15.6 0 22 0C59.2 82.5 53.8 88.2 40.7 88.2c-13.3 0-23.7-10.8-23.7-24.2s10.4-24.2 23.7-24.2c7.1 0 11.6 2.5 15.8 5.9 3.3-3.3 3.1-3.8 11.6-11.9 -7.2-6.6-16.8-10.6-27.4-10.6C18.2 23.3 0 41.5 0 64c0 22.5 18.2 40.7 40.7 40.7 33.6 0 41.8-29.3 39-48.8H40.7zM113.9 56.7V42.6h-10.1v14.1H89.4v10.1h14.5v14.5h10.1V66.8H128V56.7H113.9z"/></svg>
+            </a>
+          </div>
+
+          
+            <div id="disqus_thread" class="article-comments"></div>
+            <script>
+              var disqus_config = function () {
+                this.page.url = 'https://www.milanvit.net/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster';
+                this.page.identifier = '/post/how-to-master-a-multi-stage-continuous-delivery-of-vapor-apps-to-a-kubernetes-cluster';
+              };
+
+              (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://czech-in-japan.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+              })();
+              </script>
+            <noscript>Please enable JavaScript to view the comments.</noscript>
+          
+        </article>
+        <footer class="footer ">
+  <p>
+    Blog about a programmer who followed his love halfway across the world,
+    from Czech Republic all the way to Japan. Expect stories about a
+    possible clash of cultures, about programming and IT in general and maybe
+    micro-stories containing a random thought or two.
+  </p>
+  <p>
+    PGP: D422 FA2F 0037 0ABD D1CC 22E5 4684 6F75 9ECA 2702
+  </p>
+</footer>
+
+      </div>
+    </div>
+  </main>
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-48762418-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-48762418-2');
+  </script>
+
+
+<script src="/assets/vendor-600e49ea335fb895c0d326da11300ea5b2bcc0a442b7932323e7515bfd9e907e.js" integrity="sha256-YA5J6jNfuJXA0ybaETAOpbK8wKRCt5MjI+dRW/2ekH4=" crossorigin="anonymous" type="text/javascript"></script>
+
+
+
+
+
+<script src="/assets/application-4a681f5b35602db0857cb9b635a41856907ed1474fe9ab74d512b2ebf18aaaf0.js" integrity="sha256-SmgfWzVgLbCFfLm2NaQYVpB+0UdP6at01RKy6/GKqvA=" crossorigin="anonymous" type="text/javascript"></script>
+
+</body>
+</html>
