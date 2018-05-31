@@ -1,5 +1,5 @@
 ---
-title: "How to master a multi-stage continuous deliery of Vapor apps to a
+title: "How to master a multi-stage continuous delivery of Vapor apps to a
     Kubernetes cluster"
 description: "Wow, that title sure is a mouthful. I think is certainly breaks
     some sort of weird record for this site!"
